@@ -7,7 +7,7 @@
           Make use of our jobs databases <br />
           We'll quickly provide you with the right jobs for you
         </p>
-        <a href="/jobs-search/" class="common-btn">
+        <router-link to="/job-search/" class="common-btn">
           <span>Click to search</span>
           <svg viewBox="0 0 40 40" fill="none">
             <path
@@ -15,7 +15,7 @@
               fill="#0146B1"
             />
           </svg>
-        </a>
+        </router-link>
       </div>
     </section>
     <!-- end-search-job-section -->
@@ -218,9 +218,9 @@
           Post a job to tell us about your project <br />
           We'll quickly match you with the right freelancers
         </p>
-        <a href="/jobs-search/" class="common-btn">
+        <router-link to="/job-search" class="common-btn">
           <span>Start Now</span>
-        </a>
+        </router-link>
       </div>
     </section>
     <!-- end-search-job-section -->
