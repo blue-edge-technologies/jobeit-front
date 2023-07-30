@@ -4,7 +4,7 @@
     <div class="banner-section">
       <div class="banner-row">
         <div class="banner-left">
-          <h2 class="banner-heading">My <span>Profile</span></h2>
+          <h2 class="banner-heading">Change Password</h2>
         </div>
         <div class="banner-right"></div>
       </div>
@@ -15,360 +15,65 @@
     <section class="profile-info-section">
       <div class="container">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-6 mx-auto text-center">
             <div class="input-field">
-              <label for="institution">Institution</label
-              ><input
-                type="text"
-                name="institution"
-                v-model="jobSeekerEducation.institution"
-                class="form-control"
-                id="id_institution"
-              />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="qualification">Qualification</label
-              ><input
-                type="text"
-                v-model="jobSeekerEducation.qualification"
-                name="qualification"
-                class="form-control"
-                id="id_qualification"
-              />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="degree">Degree</label
-              ><input
-                type="text"
-                v-model="jobSeekerEducation.degree"
-                name="degree"
-                class="form-control"
-                id="id_degree"
-              />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="start_date">Start Date</label
-              ><input
-                type="date"
-                v-model="jobSeekerEducation.start_date"
-                name="start_date"
-                class="form-control"
-                id="id_start_date"
-              />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="graduated">Graduated</label
-              ><input
-                type="text"
-                v-model="jobSeekerEducation.graduated"
-                name="graduated"
-                class="form-control"
-                id="id_graduated"
-              />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="major_subject">Major Subject</label
-              ><input
-                type="text"
-                v-model="jobSeekerEducation.major_subject"
-                name="major_subject"
-                class="form-control"
-                id="id_major_subject"
-              />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="ethnicity">Ethnicity</label
-              ><select class="form-control" name="ethnicity" id="id_ethnicity" v-model="ethnicity">
-                <option
-                  v-for="ethnicity in ETHNICITY_OPTIONS"
-                  :value="ethnicity"
-                  v-bind:key="ethnicity"
-                >
-                  {{ ethnicity }}
-                </option>
-              </select>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="date_birth">Date Of Birth</label
-              ><input
-                type="date"
-                v-model="date_birth"
-                name="date_birth"
-                class="form-control"
-                id="id_date_birth"
-              />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="sex">Sex</label>
-              <!-- <input
-                type="text"
-                v-model="sex"
-                name="sex"
-                class="form-control"
-                id="id_sex"
-              /> -->
-              <select class="form-control" name="sex" id="id_sex" v-model="sex">
-                <option
-                  v-for="sex in SEX_OPTIONS"
-                  :value="sex"
-                  v-bind:key="sex"
-                >
-                  {{ sex }}
-                </option>
-              </select>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="marital_status">Marital Status</label>
-              <!-- <input
-                type="text"
-                v-model="marital_status"
-                name="marital_status"
-                class="form-control"
-                id="id_marital_status"
-              /> -->
-              <select
-                v-model="marital_status"
-                class="form-control"
-                name="marital_status"
-                id="id_marital_status"
-              >
-                <option
-                  v-for="maritalStatus in MARITAL_STATUS_OPTIONS"
-                  :value="maritalStatus"
-                  v-bind:key="maritalStatus"
-                >
-                  {{ maritalStatus }}
-                </option>
-              </select>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="addressLine1">Address Line1</label
-              ><input
-                type="text"
-                v-model="addressLine1"
-                name="addressLine1"
-                class="form-control"
-                id="id_addressLine1"
-              />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="addressLine2">Address Line2</label
-              ><input
-                type="text"
-                v-model="addressLine2"
-                name="addressLine2"
-                class="form-control"
-                id="id_addressLine2"
-              />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="suburb">Suburb</label
-              ><input
-                type="text"
-                v-model="suburb"
-                name="suburb"
-                class="form-control"
-                id="id_suburb"
-              />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="city">City</label
-              ><input
-                type="text"
-                v-model="city"
-                name="city"
-                class="form-control"
-                id="id_city"
-              />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="province">Province</label>
-
-              <select class="form-control" name="province" id="id_province" v-model="province">
-                <option
-                  v-for="province in PROVINCE_OPTIONS"
-                  v-bind:key="province"
-                >
-                  {{ province }}
-                </option>
-              </select>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="phoneNumber">Phone Number</label
-              ><input
-                type="text"
-                v-model="phoneNumber"
-                name="phoneNumber"
-                class="form-control"
-                id="id_phoneNumber"
-              />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="cv">Cv</label
-              ><input
-                type="file"
-                name="cv"
-                class="form-control-file"
-                accept="application/pdf"
-                id="id_cv"
-                @change="onCvChange"
-              />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="image">Profile Picture</label
-              ><input
-                type="file"
-                name="image"
-                class="form-control-file"
-                accept="image/*"
-                id="id_image"
-                @change="onImageChange"
-              />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="cover_letter">Cover Letter</label
-              ><input
-                type="file"
-                name="cover_letter"
-                class="form-control-file"
-                accept="application/pdf"
-                id="id_cover_letter"
-                @change="onCoverLetterChange"
-              />
-            </div>
-          </div>
-          <!-- <div
-            class="col-md-6 d-flex align-items-center gap-4 my-4 justify-content-between"
-          >
-            <p class="desc mt-2">Profile Picture:</p>
-            <input
-              type="file"
-              name="avatar"
-              class="form-control-file"
-              accept="image/*"
-              id="id_avatar"
-            />
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="profession">Profession</label>
+              <label for="current_password">Current Password</label>
+              <div v-if="showCurrentPasswordRequiredError">
+                <p class="text-danger">Current password is required.</p>
+              </div>
               <input
                 type="text"
-                name="profession"
+                v-model="current_password"
+                name="current_password"
                 class="form-control"
-                id="id_profession"
+                id="id_current_password"
               />
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="nationality">Nationality</label>
-              <input
-                type="text"
-                name="nationality"
-                class="form-control"
-                id="id_nationality"
-              />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="facebook">Facebook</label>
-              <input
-                type="url"
-                name="facebook"
-                class="form-control"
-                id="id_facebook"
-              />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="twitter">Twitter</label>
-              <input
-                type="url"
-                name="twitter"
-                class="form-control"
-                id="id_twitter"
-              />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="Linkedin">Linkedin</label>
-              <input
-                type="url"
-                name="linkedin"
-                class="form-control"
-                id="id_linkedin"
-              />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="WhatsApp">WhatsApp</label>
-              <input
-                type="url"
-                name="whatsapp"
-                class="form-control"
-                id="id_whatsapp"
-              />
-            </div>
-          </div>
-
-          <div
-            class="col-md-6 d-flex align-items-center gap-4 my-4 justify-content-between"
-          >
-            <p class="desc mt-2">Upload Resume:</p>
-            <input
-              type="file"
-              name="resume"
-              class="form-control-file"
-              id="id_resume"
-            />
-          </div> -->
         </div>
-        <div class="col-md-12 text-end">
+        <div class="row">
+          <div class="col-md-6 mx-auto text-center">
+            <div class="input-field">
+              <label for="new_password">New Password</label>
+              <div v-if="showPasswordTooShortError">
+                <p class="text-danger">
+                  Your password should be at least 8 characters long.
+                </p>
+              </div>
+              <input
+                type="text"
+                v-model="new_password"
+                name="new_password"
+                class="form-control"
+                id="id_new_password"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mx-auto text-center">
+            <div class="input-field">
+              <label for="new_password2">Confirm New Password</label>
+              <div v-if="showPasswordsDoNotMatchError">
+                <p class="text-danger">
+                  The two password fields do not match.
+                </p>
+              </div>
+              <input
+                type="text"
+                v-model="new_password2"
+                name="new_password2"
+                class="form-control"
+                id="id_new_password2"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12 mx-auto text-center">
           <button
-            type="submit"
             class="common-btn common-btn-block"
-            @click="updateProfile"
+            @click="updateAccount"
             :disabled="submitDisabled"
           >
             <span>Update my profile</span>
@@ -389,130 +94,54 @@
 <script>
 import FooterSection from "@/components/FooterSection.vue";
 import NavBar from "@/components/NavBar.vue";
-
-const PROVINCE_OPTIONS = Object.freeze({
-  Gauteng: "Gauteng",
-  Mpumalanga: "Mpumalanga",
-  "Free-state": "Free-state",
-  "North-west": "North-west",
-  Limpopo: "Limpopo",
-  "Western-cape": "Western-cape",
-  "Nothern-cape": "Nothern-cape",
-  "Eastern-cape": "Eastern-cape",
-  "Kwazulu-natal": "Kwazulu-natal",
-});
-
-const MARITAL_STATUS_OPTIONS = Object.freeze({
-  Married: "Married",
-  Single: "Single",
-  Widowed: "Widowed",
-  Divorced: "Divorced",
-});
-
-const SEX_OPTIONS = Object.freeze({
-  Male: "Male",
-  Female: "Female",
-  Other: "Other",
-});
-
-const ETHNICITY_OPTIONS = Object.freeze({
-  Coloured: "Coloured",
-  White: "White",
-  Black: "Black",
-  Indian: "Indian",
-  Chinese: "Chinese",
-});
-
 export default {
   components: { FooterSection, NavBar },
   data() {
     return {
-      // TODO: Convert to array
-      jobSeekerEducation: {
-        institution: "",
-        qualification: "",
-        degree: "",
-        start_date: "",
-        graduated: "",
-        major_subject: "",
-      },
-
-      ethnicity: "",
-      date_birth: "",
-      sex: "",
-      marital_status: "",
-      addressLine1: "",
-      addressLine2: "",
-      suburb: "",
-      city: "",
-      province: "",
-      phoneNumber: "",
-      cv: "",
-      image: "",
-      cover_letter: "",
-
-      PROVINCE_OPTIONS,
-      MARITAL_STATUS_OPTIONS,
-      SEX_OPTIONS,
-      ETHNICITY_OPTIONS,
+      current_password: "",
+      new_password: "",
+      new_password2: "",
     };
   },
-
-  methods: {
-    onCvChange(e) {
-      const file = e.target.files[0];
-      this.cv = file;
+  computed: {
+    passwordsDoNotMatch: function () {
+      return this.new_password != this.new_password2;
     },
-    onImageChange(e) {
-      const file = e.target.files[0];
-      this.image = file;
+    passwordTooShort: function () {
+      return this.new_password.length < 8;
     },
-    onCoverLetterChange(e) {
-      const file = e.target.files[0];
-      this.cover_letter = file;
+    currentPasswordTooShort: function () {
+      return this.current_password.length == 0;
     },
-    updateProfile() {
-      const formData = new FormData();
-      formData.append("cv", this.cv);
-      formData.append("image", this.image);
-      formData.append("cover_letter", this.cover_letter);
-      formData.append("date_birth", this.date_birth);
-      formData.append("addressLine1", this.addressLine1);
-      formData.append("addressLine2", this.addressLine2);
-      formData.append("suburb", this.suburb);
-      formData.append("city", this.city);
-      formData.append("province", this.province);
-      formData.append("phoneNumber", this.phoneNumber);
-      formData.append(
-        "job_seeker_education[]",
-        JSON.stringify(this.jobSeekerEducation)
+    showPasswordsDoNotMatchError: function () {
+      return this.passwordsDoNotMatch && this.new_password2.length > 0;
+    },
+    showPasswordTooShortError: function () {
+      return this.new_password.length > 0 && this.passwordTooShort;
+    },
+    showCurrentPasswordRequiredError: function () {
+      return (
+        this.currentPasswordTooShort &&
+        (this.new_password.length > 0 || this.new_password2.length > 0)
       );
-      formData.append("ethnicity", this.ethnicity);
-      formData.append("sex", this.sex);
-      formData.append("marital_status", this.marital_status);
-
-      this.$store.dispatch("updateProfile", formData);
+    },
+    submitDisabled: function () {
+      return (
+        this.passwordsDoNotMatch ||
+        this.passwordTooShort ||
+        this.currentPasswordTooShort
+      );
     },
   },
-  computed: {
-    submitDisabled: function () {
-      const required = [
-        "date_birth",
-        "addressLine1",
-        "addressLine2",
-        "suburb",
-        "city",
-        "province",
-        "phoneNumber",
-      ];
-      console.log(required.forEach((field) => console.log(field, this[field])));
-      return required.some((field) => !this[field]);
-    },
-    isError() {
-      return this.$store.getters.updateProfileError;
-    },
-    isLoading() {
-      return this.$store.getters.isLoading;
+  methods: {
+    updateAccount: function () {
+      if (this.submitDisabled) {
+        return false;
+      }
+      this.$store.dispatch("updateAccount", {
+        current_password: this.current_password,
+        new_password: this.new_password,
+      });
     },
   },
 };
@@ -716,6 +345,12 @@ header {
   -webkit-box-shadow: -1px 10px 20px #d7ff9e;
   box-shadow: -1px 10px 20px #d7ff9e;
 }
+
+.common-btn:disabled {
+  background: #d7d7d7 !important;
+  cursor: auto !important;
+}
+
 .common-btn span {
   color: #000000;
   font-weight: 400;
@@ -738,10 +373,6 @@ header {
   transform: translateX(1rem);
 }
 
-.common-btn:disabled {
-  background: #d7d7d7 !important;
-  cursor: auto !important;
-}
 .common-btn:hover:disabled svg {
   -webkit-transform: translateX(0rem);
   -ms-transform: translateX(0rem);

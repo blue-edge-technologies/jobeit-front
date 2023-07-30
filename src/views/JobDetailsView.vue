@@ -4,7 +4,7 @@
     <section class="job-description-section">
       <div class="container">
         <div class="job-desc-banner-heading pb-4">
-          <h2 class="bold-banner-heading">Head of Customer Success</h2>
+          <h2 class="bold-banner-heading">{{jobDetails.title}}</h2>
           <div>
             <svg width="30" height="40" viewBox="0 0 46 50" fill="none">
               <path
@@ -16,10 +16,12 @@
         </div>
         <div class="d-flex gap-5 align-items-center my-3 flex-wrap">
           <img
-            src="https://media.licdn.com/dms/image/C560BAQH-hihSBgMrRA/company-logo_100_100/0/1630558410851?e=2147483647&amp;v=beta&amp;t=CRrbAcEFrYz8Pp-z19e_0SfP7g9wo3w9jd-pMTz3k3A"
-            alt="https://media.licdn.com/dms/image/C560BAQH-hihSBgMrRA/company-logo_100_100/0/1630558410851?e=2147483647&amp;v=beta&amp;t=CRrbAcEFrYz8Pp-z19e_0SfP7g9wo3w9jd-pMTz3k3A"
+            :src="jobDetails.logo"
+            :alt="`${jobDetails.title} logo`"
           />
-          <p class="desc-white">Accel in India</p>
+          <p class="desc-white">
+            {{ jobDetails.company }}
+          </p>
           <!-- <a class="squar-btn" href="">5 + open jobs</a> -->
         </div>
         <div class="d-flex align-items-center justify-content-between">
@@ -30,10 +32,10 @@
                 fill="#b3fd4c"
               ></path>
             </svg>
-            <p class="desc-white mt-3">Gurgaon, Haryana, India</p>
+            <p class="desc-white mt-3">{{ jobDetails.location }}</p>
           </div>
           <a
-            href="https://in.linkedin.com/jobs/view/head-of-customer-success-at-accel-in-india-3648756163?refId=yr0EVEiJwJJkABmVAQmHcQ%3D%3D&amp;trackingId=HiX1RpHo7UiV16CZvx24zQ%3D%3D&amp;position=20&amp;pageNum=2&amp;trk=public_jobs_jserp-result_search-card"
+            :href="jobDetails.url_link"
             class="common-btn common-btn-jobdesc mt-5"
             >Apply now</a
           >
@@ -42,7 +44,10 @@
           class="pt-3 d-flex align-items-center justify-content-between flex-wrap"
         >
           <div class="d-flex align-items-center gap-5">
-            <a href="" class="transparent-btn transparent-btn-sm">Full-time</a>
+            <a href="" class="transparent-btn transparent-btn-sm">{{ 
+              jobDetails.contract_type1
+              }}
+              </a>  
           </div>
         </div>
       </div>
@@ -67,7 +72,9 @@
                   fill="#0146B1"
                 />
               </svg>
-              <p class="desc">Posted on: June 27, 2023, 2:03 p.m.</p>
+              <p class="desc">Posted on: {{
+                new Date(jobDetails.date_posted).toDateString()
+              }} </p>
             </div>
           </div>
           <div class="col-md-6">
@@ -96,58 +103,7 @@
           <div class="col">
             <h2 class="section-heading"><span>Job </span>Description</h2>
             <p class="desc">
-              Customer Success Head About TravelPlus Corporate travel and
-              expense management is hard. Between coordinating flights, hotels,
-              ground transportation, and other travel logistics, it&#x27;s no
-              wonder that corporate travel management is often seen as a hassle.
-              What if there was a way to reimagine this? TravelPlus is a leading
-              corporate travel and expense management platform that works for
-              everyone. Launched in Oct&#x27;20, and within a short span of two
-              years, 150+ leading corporates, ranging from tech unicorns to
-              traditional companies, use TravelPlus to manage their entire
-              travel spend with our strong tech-first platform. We are backed by
-              marquee investors like Accel Partners and Goldman Sachs.
-              Headquartered in Gurgaon, we have local presence across Metros.
-              With more than 8 years of running FabHotels, India&#x27;s most
-              preferred premium economy hotels chain with 1000+ hotels in 60+
-              cities, we understand both tech and hospitality and are uniquely
-              positioned to win in this $40 billion market. Website Linkedin
-              About the role We are looking for a talented and ambitious
-              business leaders to join our team. As a Customer Success Head, you
-              will be responsible for building and maintaining strong
-              relationships with our clients, ensuring their satisfaction and
-              success with our platform. You will also work closely with our
-              regional sales heads and product teams to identify new
-              opportunities for growth and innovation. This is a high stake,
-              client facing role that entails revenue responsibility.
-              Responsibilities Manage a portfolio of clients with a team of
-              customer success managers Own monthly NRR (net revenue run-rate),
-              client retention, NPS and product adoption metrics Be the senior
-              stakeholder for maintaining strong relationships with clients
-              Identify new opportunities for growth and upsell, working closely
-              with our sales team Collaborate with our product team to identify
-              and prioritize new features and enhancements based on client
-              feedback Requirements Bachelor&#x27;s or master&#x27;s degree from
-              a top institute with 8-10 years of experience in a revenue
-              responsibility or category management role Strong communication
-              and interpersonal skills Proven track record of building and
-              maintaining strong client relationships Analytical mindset and
-              ability to use data to drive decision-making Experience working
-              with technology platforms and tools Ability to thrive in a
-              fast-paced, dynamic environment What are we looking for We&#x27;re
-              looking for ambitious, self-driven and intellectually curious
-              individuals, who are looking to fast-track their career, building
-              a generational travel tech platform. People who like taking
-              responsibility, are comfortable making business decisions thrive
-              in our culture. About the team Expect a high standards team that
-              works hard and takes on Big Hairy Audacious Goals and nails them.
-              We are rated 4.3 on Glassdoor. Some of your peers here will be -
-              Vaibhav Aggarwal - CEO &amp; co-founder; ex-Bain, FabFurnish;
-              Wharton Adarssh Mnpuria - Co-founder; ex-Bain, Rocket Internet;
-              Wharton Prateek Goyal - Ex-Cars24, Practo; IMT Himanshu Arora -
-              Ex-Urban Company, McKinsey; IIMA Sagar Chaudhary - Customer
-              Success Lead - IIT Delhi Siddharth Singh - Customer Success
-              Manager - Delhi College of Engineering
+              {{ jobDetails.description || "No description available" }}
             </p>
           </div>
         </div>
@@ -165,58 +121,7 @@
           <div class="col">
             <h2 class="section-heading"><span>Job </span>Requirements</h2>
             <p class="desc">
-              Customer Success Head About TravelPlus Corporate travel and
-              expense management is hard. Between coordinating flights, hotels,
-              ground transportation, and other travel logistics, it&#x27;s no
-              wonder that corporate travel management is often seen as a hassle.
-              What if there was a way to reimagine this? TravelPlus is a leading
-              corporate travel and expense management platform that works for
-              everyone. Launched in Oct&#x27;20, and within a short span of two
-              years, 150+ leading corporates, ranging from tech unicorns to
-              traditional companies, use TravelPlus to manage their entire
-              travel spend with our strong tech-first platform. We are backed by
-              marquee investors like Accel Partners and Goldman Sachs.
-              Headquartered in Gurgaon, we have local presence across Metros.
-              With more than 8 years of running FabHotels, India&#x27;s most
-              preferred premium economy hotels chain with 1000+ hotels in 60+
-              cities, we understand both tech and hospitality and are uniquely
-              positioned to win in this $40 billion market. Website Linkedin
-              About the role We are looking for a talented and ambitious
-              business leaders to join our team. As a Customer Success Head, you
-              will be responsible for building and maintaining strong
-              relationships with our clients, ensuring their satisfaction and
-              success with our platform. You will also work closely with our
-              regional sales heads and product teams to identify new
-              opportunities for growth and innovation. This is a high stake,
-              client facing role that entails revenue responsibility.
-              Responsibilities Manage a portfolio of clients with a team of
-              customer success managers Own monthly NRR (net revenue run-rate),
-              client retention, NPS and product adoption metrics Be the senior
-              stakeholder for maintaining strong relationships with clients
-              Identify new opportunities for growth and upsell, working closely
-              with our sales team Collaborate with our product team to identify
-              and prioritize new features and enhancements based on client
-              feedback Requirements Bachelor&#x27;s or master&#x27;s degree from
-              a top institute with 8-10 years of experience in a revenue
-              responsibility or category management role Strong communication
-              and interpersonal skills Proven track record of building and
-              maintaining strong client relationships Analytical mindset and
-              ability to use data to drive decision-making Experience working
-              with technology platforms and tools Ability to thrive in a
-              fast-paced, dynamic environment What are we looking for We&#x27;re
-              looking for ambitious, self-driven and intellectually curious
-              individuals, who are looking to fast-track their career, building
-              a generational travel tech platform. People who like taking
-              responsibility, are comfortable making business decisions thrive
-              in our culture. About the team Expect a high standards team that
-              works hard and takes on Big Hairy Audacious Goals and nails them.
-              We are rated 4.3 on Glassdoor. Some of your peers here will be -
-              Vaibhav Aggarwal - CEO &amp; co-founder; ex-Bain, FabFurnish;
-              Wharton Adarssh Mnpuria - Co-founder; ex-Bain, Rocket Internet;
-              Wharton Prateek Goyal - Ex-Cars24, Practo; IMT Himanshu Arora -
-              Ex-Urban Company, McKinsey; IIMA Sagar Chaudhary - Customer
-              Success Lead - IIT Delhi Siddharth Singh - Customer Success
-              Manager - Delhi College of Engineering Show more Show less
+              {{ jobDetails.requirements || "Requirements unavailable" }}
             </p>
           </div>
         </div>
@@ -230,158 +135,12 @@
       <div class="container">
         <h2 class="section-heading"><span>Related</span> Jobs</h2>
 
-        <div class="related-job">
-          <h3><a href="/jobs/chief-of-staff305b">Chief of Staff</a></h3>
-          <div class="related-job-content">
-            <img
-              src="https://media.licdn.com/dms/image/C4D0BAQHzC38soKDihQ/company-logo_100_100/0/1624092252975?e=2147483647&amp;v=beta&amp;t=ej6fmdE_Jj3L71cW4LYPxWk8OzAIumciRcT1HqlwBUg"
-              alt="https://media.licdn.com/dms/image/C4D0BAQHzC38soKDihQ/company-logo_100_100/0/1624092252975?e=2147483647&amp;v=beta&amp;t=ej6fmdE_Jj3L71cW4LYPxWk8OzAIumciRcT1HqlwBUg"
-            />
-            <div class="related-job-tag">
-              <div class="d-flex gap-3">
-                <svg width="25" height="25" viewBox="0 0 34 32" fill="none">
-                  <path
-                    d="M20.333 7.00004V3.66671H13.6663V7.00004H20.333ZM3.66634 12V27C3.66634 27.9167 4.41634 28.6667 5.33301 28.6667H28.6663C29.583 28.6667 30.333 27.9167 30.333 27V12C30.333 11.0834 29.583 10.3334 28.6663 10.3334H5.33301C4.41634 10.3334 3.66634 11.0834 3.66634 12ZM30.333 7.00004C32.183 7.00004 33.6663 8.48337 33.6663 10.3334V28.6667C33.6663 30.5167 32.183 32 30.333 32H3.66634C1.81634 32 0.333008 30.5167 0.333008 28.6667L0.349674 10.3334C0.349674 8.48337 1.81634 7.00004 3.66634 7.00004H10.333V3.66671C10.333 1.81671 11.8163 0.333374 13.6663 0.333374H20.333C22.183 0.333374 23.6663 1.81671 23.6663 3.66671V7.00004H30.333Z"
-                  />
-                </svg>
-                <p>Qrata</p>
-              </div>
-              <div class="d-flex gap-3">
-                <svg width="25" height="25" viewBox="0 0 27 34" fill="none">
-                  <path
-                    d="M13.3333 16.6667C14.25 16.6667 15.035 16.34 15.6883 15.6867C16.3406 15.0344 16.6667 14.25 16.6667 13.3333C16.6667 12.4167 16.3406 11.6317 15.6883 10.9783C15.035 10.3261 14.25 10 13.3333 10C12.4167 10 11.6322 10.3261 10.98 10.9783C10.3267 11.6317 10 12.4167 10 13.3333C10 14.25 10.3267 15.0344 10.98 15.6867C11.6322 16.34 12.4167 16.6667 13.3333 16.6667ZM13.3333 28.9167C16.7222 25.8056 19.2361 22.9789 20.875 20.4367C22.5139 17.8956 23.3333 15.6389 23.3333 13.6667C23.3333 10.6389 22.3678 8.15944 20.4367 6.22833C18.5067 4.29833 16.1389 3.33333 13.3333 3.33333C10.5278 3.33333 8.15944 4.29833 6.22833 6.22833C4.29833 8.15944 3.33333 10.6389 3.33333 13.6667C3.33333 15.6389 4.15278 17.8956 5.79167 20.4367C7.43056 22.9789 9.94444 25.8056 13.3333 28.9167ZM13.3333 33.3333C8.86111 29.5278 5.52111 25.9928 3.31333 22.7283C1.10444 19.465 0 16.4444 0 13.6667C0 9.5 1.34056 6.18056 4.02167 3.70833C6.70167 1.23611 9.80556 0 13.3333 0C16.8611 0 19.965 1.23611 22.645 3.70833C25.3261 6.18056 26.6667 9.5 26.6667 13.6667C26.6667 16.4444 25.5628 19.465 23.355 22.7283C21.1461 25.9928 17.8056 29.5278 13.3333 33.3333Z"
-                  />
-                </svg>
-                <p>Faridabad, Haryana, India</p>
-              </div>
-            </div>
-          </div>
-          <div
-            class="related-bottom d-flex align-items-center justify-content-between"
-          >
-            <div class="job-tags">
-              <a href="/jobs/chief-of-staff305b">Full-time</a>
-            </div>
-            <a
-              href="https://in.linkedin.com/jobs/view/chief-of-staff-at-qrata-3586103368?refId=N%2B%2Bu3JcasuoAxng9Iq8lYA%3D%3D&amp;trackingId=QCgM6gSgPiXTU8mJBvbYfQ%3D%3D&amp;position=8&amp;pageNum=1&amp;trk=public_jobs_jserp-result_search-card"
-              class="common-btn"
-            >
-              <span>Apply Now</span>
-              <svg viewBox="0 0 40 40" fill="none">
-                <path
-                  d="M23.8844 38.9238C23.3708 38.2063 23.1242 37.3393 23.1448 36.3229C23.167 35.3064 23.435 34.4395 23.9486 33.722L31.2038 23.5874H2.56822C1.84056 23.5874 1.23018 23.243 0.737079 22.5543C0.245693 21.8679 0 21.0164 0 20C0 18.9836 0.245693 18.1309 0.737079 17.4422C1.23018 16.7558 1.84056 16.4126 2.56822 16.4126H31.2038L23.8844 6.18834C23.3708 5.47085 23.114 4.61823 23.114 3.63049C23.114 2.64514 23.3708 1.79372 23.8844 1.07623C24.3981 0.358743 25.0085 0 25.7156 0C26.421 0 27.0305 0.358743 27.5441 1.07623L39.2937 17.4888C39.5506 17.8475 39.7329 18.2362 39.8408 18.6547C39.9469 19.0732 40 19.5217 40 20C40 20.4783 39.9469 20.9268 39.8408 21.3453C39.7329 21.7638 39.5506 22.1525 39.2937 22.5112L27.4799 39.0134C27.0091 39.6711 26.421 40 25.7156 40C25.0085 40 24.3981 39.6413 23.8844 38.9238Z"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
+        <job-item-card
+          v-for="(job, index) in relatedJobs"
+          :key="index"
+          :job="job"
+        ></job-item-card>
 
-        <div class="related-job">
-          <h3>
-            <a
-              href="/jobs/software-engineer-ll-sap-success-factors-benefitse9b6"
-              >Software Engineer ll - SAP Success Factors - Benefits</a
-            >
-          </h3>
-          <div class="related-job-content">
-            <img
-              src="https://media.licdn.com/dms/image/D560BAQFF2RyLy1gTkA/company-logo_100_100/0/1685619133447?e=2147483647&amp;v=beta&amp;t=XmGRO-EhWiUzr1knQglzNZcxw5bA5dCf1P47FweT6qA"
-              alt="https://media.licdn.com/dms/image/D560BAQFF2RyLy1gTkA/company-logo_100_100/0/1685619133447?e=2147483647&amp;v=beta&amp;t=XmGRO-EhWiUzr1knQglzNZcxw5bA5dCf1P47FweT6qA"
-            />
-            <div class="related-job-tag">
-              <div class="d-flex gap-3">
-                <svg width="25" height="25" viewBox="0 0 34 32" fill="none">
-                  <path
-                    d="M20.333 7.00004V3.66671H13.6663V7.00004H20.333ZM3.66634 12V27C3.66634 27.9167 4.41634 28.6667 5.33301 28.6667H28.6663C29.583 28.6667 30.333 27.9167 30.333 27V12C30.333 11.0834 29.583 10.3334 28.6663 10.3334H5.33301C4.41634 10.3334 3.66634 11.0834 3.66634 12ZM30.333 7.00004C32.183 7.00004 33.6663 8.48337 33.6663 10.3334V28.6667C33.6663 30.5167 32.183 32 30.333 32H3.66634C1.81634 32 0.333008 30.5167 0.333008 28.6667L0.349674 10.3334C0.349674 8.48337 1.81634 7.00004 3.66634 7.00004H10.333V3.66671C10.333 1.81671 11.8163 0.333374 13.6663 0.333374H20.333C22.183 0.333374 23.6663 1.81671 23.6663 3.66671V7.00004H30.333Z"
-                  />
-                </svg>
-                <p>McKinsey &amp; Company</p>
-              </div>
-              <div class="d-flex gap-3">
-                <svg width="25" height="25" viewBox="0 0 27 34" fill="none">
-                  <path
-                    d="M13.3333 16.6667C14.25 16.6667 15.035 16.34 15.6883 15.6867C16.3406 15.0344 16.6667 14.25 16.6667 13.3333C16.6667 12.4167 16.3406 11.6317 15.6883 10.9783C15.035 10.3261 14.25 10 13.3333 10C12.4167 10 11.6322 10.3261 10.98 10.9783C10.3267 11.6317 10 12.4167 10 13.3333C10 14.25 10.3267 15.0344 10.98 15.6867C11.6322 16.34 12.4167 16.6667 13.3333 16.6667ZM13.3333 28.9167C16.7222 25.8056 19.2361 22.9789 20.875 20.4367C22.5139 17.8956 23.3333 15.6389 23.3333 13.6667C23.3333 10.6389 22.3678 8.15944 20.4367 6.22833C18.5067 4.29833 16.1389 3.33333 13.3333 3.33333C10.5278 3.33333 8.15944 4.29833 6.22833 6.22833C4.29833 8.15944 3.33333 10.6389 3.33333 13.6667C3.33333 15.6389 4.15278 17.8956 5.79167 20.4367C7.43056 22.9789 9.94444 25.8056 13.3333 28.9167ZM13.3333 33.3333C8.86111 29.5278 5.52111 25.9928 3.31333 22.7283C1.10444 19.465 0 16.4444 0 13.6667C0 9.5 1.34056 6.18056 4.02167 3.70833C6.70167 1.23611 9.80556 0 13.3333 0C16.8611 0 19.965 1.23611 22.645 3.70833C25.3261 6.18056 26.6667 9.5 26.6667 13.6667C26.6667 16.4444 25.5628 19.465 23.355 22.7283C21.1461 25.9928 17.8056 29.5278 13.3333 33.3333Z"
-                  />
-                </svg>
-                <p>Gurugram, Haryana, India</p>
-              </div>
-            </div>
-          </div>
-          <div
-            class="related-bottom d-flex align-items-center justify-content-between"
-          >
-            <div class="job-tags">
-              <a
-                href="/jobs/software-engineer-ll-sap-success-factors-benefitse9b6"
-                >Full-time</a
-              >
-            </div>
-            <a
-              href="https://in.linkedin.com/jobs/view/software-engineer-ll-sap-success-factors-benefits-at-mckinsey-company-3607487696?refId=uet%2BTxE85GhWtBqv88SWtg%3D%3D&amp;trackingId=rcZ7AmhSsO6vChT1TVJ4KQ%3D%3D&amp;position=8&amp;pageNum=0&amp;trk=public_jobs_jserp-result_search-card"
-              class="common-btn"
-            >
-              <span>Apply Now</span>
-              <svg viewBox="0 0 40 40" fill="none">
-                <path
-                  d="M23.8844 38.9238C23.3708 38.2063 23.1242 37.3393 23.1448 36.3229C23.167 35.3064 23.435 34.4395 23.9486 33.722L31.2038 23.5874H2.56822C1.84056 23.5874 1.23018 23.243 0.737079 22.5543C0.245693 21.8679 0 21.0164 0 20C0 18.9836 0.245693 18.1309 0.737079 17.4422C1.23018 16.7558 1.84056 16.4126 2.56822 16.4126H31.2038L23.8844 6.18834C23.3708 5.47085 23.114 4.61823 23.114 3.63049C23.114 2.64514 23.3708 1.79372 23.8844 1.07623C24.3981 0.358743 25.0085 0 25.7156 0C26.421 0 27.0305 0.358743 27.5441 1.07623L39.2937 17.4888C39.5506 17.8475 39.7329 18.2362 39.8408 18.6547C39.9469 19.0732 40 19.5217 40 20C40 20.4783 39.9469 20.9268 39.8408 21.3453C39.7329 21.7638 39.5506 22.1525 39.2937 22.5112L27.4799 39.0134C27.0091 39.6711 26.421 40 25.7156 40C25.0085 40 24.3981 39.6413 23.8844 38.9238Z"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="related-job">
-          <h3>
-            <a href="/jobs/head-of-strategic-pricing-and-growth-dubai-basede2f8"
-              >Head of Strategic Pricing and Growth (Dubai based)</a
-            >
-          </h3>
-          <div class="related-job-content">
-            <img
-              src="https://media.licdn.com/dms/image/C510BAQG4tZBgCKmaZw/company-logo_100_100/0/1537034954585?e=2147483647&amp;v=beta&amp;t=NYsSLR0ZlKfk3kHUu0y_AbGOPsnDr3Tvnm2s3OWrPcs"
-              alt="https://media.licdn.com/dms/image/C510BAQG4tZBgCKmaZw/company-logo_100_100/0/1537034954585?e=2147483647&amp;v=beta&amp;t=NYsSLR0ZlKfk3kHUu0y_AbGOPsnDr3Tvnm2s3OWrPcs"
-            />
-            <div class="related-job-tag">
-              <div class="d-flex gap-3">
-                <svg width="25" height="25" viewBox="0 0 34 32" fill="none">
-                  <path
-                    d="M20.333 7.00004V3.66671H13.6663V7.00004H20.333ZM3.66634 12V27C3.66634 27.9167 4.41634 28.6667 5.33301 28.6667H28.6663C29.583 28.6667 30.333 27.9167 30.333 27V12C30.333 11.0834 29.583 10.3334 28.6663 10.3334H5.33301C4.41634 10.3334 3.66634 11.0834 3.66634 12ZM30.333 7.00004C32.183 7.00004 33.6663 8.48337 33.6663 10.3334V28.6667C33.6663 30.5167 32.183 32 30.333 32H3.66634C1.81634 32 0.333008 30.5167 0.333008 28.6667L0.349674 10.3334C0.349674 8.48337 1.81634 7.00004 3.66634 7.00004H10.333V3.66671C10.333 1.81671 11.8163 0.333374 13.6663 0.333374H20.333C22.183 0.333374 23.6663 1.81671 23.6663 3.66671V7.00004H30.333Z"
-                  />
-                </svg>
-                <p>Property Finder</p>
-              </div>
-              <div class="d-flex gap-3">
-                <svg width="25" height="25" viewBox="0 0 27 34" fill="none">
-                  <path
-                    d="M13.3333 16.6667C14.25 16.6667 15.035 16.34 15.6883 15.6867C16.3406 15.0344 16.6667 14.25 16.6667 13.3333C16.6667 12.4167 16.3406 11.6317 15.6883 10.9783C15.035 10.3261 14.25 10 13.3333 10C12.4167 10 11.6322 10.3261 10.98 10.9783C10.3267 11.6317 10 12.4167 10 13.3333C10 14.25 10.3267 15.0344 10.98 15.6867C11.6322 16.34 12.4167 16.6667 13.3333 16.6667ZM13.3333 28.9167C16.7222 25.8056 19.2361 22.9789 20.875 20.4367C22.5139 17.8956 23.3333 15.6389 23.3333 13.6667C23.3333 10.6389 22.3678 8.15944 20.4367 6.22833C18.5067 4.29833 16.1389 3.33333 13.3333 3.33333C10.5278 3.33333 8.15944 4.29833 6.22833 6.22833C4.29833 8.15944 3.33333 10.6389 3.33333 13.6667C3.33333 15.6389 4.15278 17.8956 5.79167 20.4367C7.43056 22.9789 9.94444 25.8056 13.3333 28.9167ZM13.3333 33.3333C8.86111 29.5278 5.52111 25.9928 3.31333 22.7283C1.10444 19.465 0 16.4444 0 13.6667C0 9.5 1.34056 6.18056 4.02167 3.70833C6.70167 1.23611 9.80556 0 13.3333 0C16.8611 0 19.965 1.23611 22.645 3.70833C25.3261 6.18056 26.6667 9.5 26.6667 13.6667C26.6667 16.4444 25.5628 19.465 23.355 22.7283C21.1461 25.9928 17.8056 29.5278 13.3333 33.3333Z"
-                  />
-                </svg>
-                <p>Delhi, India</p>
-              </div>
-            </div>
-          </div>
-          <div
-            class="related-bottom d-flex align-items-center justify-content-between"
-          >
-            <div class="job-tags">
-              <a
-                href="/jobs/head-of-strategic-pricing-and-growth-dubai-basede2f8"
-                >Full-time</a
-              >
-            </div>
-            <a
-              href="https://in.linkedin.com/jobs/view/head-of-strategic-pricing-and-growth-dubai-based-at-property-finder-3598514243?refId=N%2B%2Bu3JcasuoAxng9Iq8lYA%3D%3D&amp;trackingId=SWoLaFvXvFf1dmnb%2FT0quw%3D%3D&amp;position=9&amp;pageNum=1&amp;trk=public_jobs_jserp-result_search-card"
-              class="common-btn"
-            >
-              <span>Apply Now</span>
-              <svg viewBox="0 0 40 40" fill="none">
-                <path
-                  d="M23.8844 38.9238C23.3708 38.2063 23.1242 37.3393 23.1448 36.3229C23.167 35.3064 23.435 34.4395 23.9486 33.722L31.2038 23.5874H2.56822C1.84056 23.5874 1.23018 23.243 0.737079 22.5543C0.245693 21.8679 0 21.0164 0 20C0 18.9836 0.245693 18.1309 0.737079 17.4422C1.23018 16.7558 1.84056 16.4126 2.56822 16.4126H31.2038L23.8844 6.18834C23.3708 5.47085 23.114 4.61823 23.114 3.63049C23.114 2.64514 23.3708 1.79372 23.8844 1.07623C24.3981 0.358743 25.0085 0 25.7156 0C26.421 0 27.0305 0.358743 27.5441 1.07623L39.2937 17.4888C39.5506 17.8475 39.7329 18.2362 39.8408 18.6547C39.9469 19.0732 40 19.5217 40 20C40 20.4783 39.9469 20.9268 39.8408 21.3453C39.7329 21.7638 39.5506 22.1525 39.2937 22.5112L27.4799 39.0134C27.0091 39.6711 26.421 40 25.7156 40C25.0085 40 24.3981 39.6413 23.8844 38.9238Z"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
       </div>
     </section>
     <footer-section></footer-section>
@@ -391,8 +150,32 @@
 <script>
 import FooterSection from "@/components/FooterSection.vue";
 import NavBar from "@/components/NavBar.vue";
+import JobItemCard from "@/components/JobItemCard.vue";
+
 export default {
-  components: { FooterSection, NavBar },
+  components: { FooterSection, NavBar, JobItemCard },
+  created() {
+    this.getJobsDetail();
+  },
+  methods: {
+    getJobsDetail() {
+      this.$store.dispatch("getJob", { slug: this.$route.params.slug });
+    },
+  },
+  computed: {
+    jobDetails() {
+      return (
+        this.$store.getters.getJob || { title: "Loading", description: "" }
+      );
+    },
+    relatedJobs() {
+      // THIS DATA IS NOT RETURNED FROM THE API REQUEST
+      return this.$store.state.getJobs;
+    },
+    isLoading() {
+      return this.$store.state.isJobDetailLoading;
+    },
+  },
 };
 </script>
 

@@ -18,7 +18,7 @@
               <h2 class="banner-heading mb-5 pb-5">
                 Welcome <span>Back</span>
               </h2>
-              <form class="contact-frm" data-aos="fade-left" method="post">
+              <div class="contact-frm" data-aos="fade-left" method="post">
                 <input
                   type="hidden"
                   name="csrfmiddlewaretoken"
@@ -26,10 +26,16 @@
                 />
 
                 <div class="field-colume">
-                  <input type="text" placeholder="Username" name="username" />
+                  <input
+                    v-model="email"
+                    type="email"
+                    placeholder="Email"
+                    name="email"
+                  />
                 </div>
                 <div class="field-colume">
                   <input
+                    v-model="password"
                     type="password"
                     placeholder="Password"
                     name="password"
@@ -48,9 +54,9 @@
                   <a href="" class="text-white">Forgot Password?</a>
                 </div>
                 <div class="field-colume submit-btn mt-3">
-                  <button>Log In</button>
+                  <button @click="loginUser">Log In</button>
                 </div>
-              </form>
+              </div>
               <p class="desc-white mt-5 pt-5 fs-3">
                 Don't have an account ?
                 <router-link class="form-link" to="/signup">
@@ -67,7 +73,28 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data: function () {
+    return {
+      email: "",
+      password: "",
+    };
+  },
+  methods: {
+    loginUser() {
+      this.$store
+        .dispatch("loginUser", {
+          email: this.email,
+          password: this.password,
+        })
+        .then(() => {
+          this.$router.push({
+            name: "profile",
+          });
+        });
+    },
+  },
+};
 </script>
 
 <style scoped>

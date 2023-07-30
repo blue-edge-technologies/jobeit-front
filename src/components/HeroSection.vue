@@ -5,7 +5,7 @@
         <h1 class="hero-heading hero-pr-10">
           Find your dream jobs with <span>Jobcy</span>
         </h1>
-        <form action="/jobs-search/">
+        <form action="/job-search/">
           <div class="search-box">
             <div class="search-field company-search-field">
               <svg viewBox="0 0 34 33" fill="none">

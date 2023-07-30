@@ -9,6 +9,10 @@ import JobSearchView from "../views/JobSearchView.vue";
 import ContactView from "../views/ContactView.vue";
 import BlogView from "../views/BlogView.vue";
 import JobDetailsView from "../views/JobDetailsView.vue";
+import ActivateEmailCallback from "../views/ActivateEmailCallback.vue";
+import ActivateEmailView from "../views/ActivateEmailView.vue";
+import ResetPasswordCallback from "../views/ResetPasswordCallback.vue";
+import UpdateAccountView from "../views/UpdateAccountView.vue";
 
 Vue.use(VueRouter);
 
@@ -39,6 +43,11 @@ const routes = [
     component: UpdateProfileView,
   },
   {
+    path: "/update-account",
+    name: "update-account",
+    component: UpdateAccountView,
+  },
+  {
     path: "/job-search",
     name: "job-search",
     component: JobSearchView,
@@ -57,6 +66,21 @@ const routes = [
     path: "/blog",
     name: "blog",
     component: BlogView,
+  },
+  {
+    path: "/activate/:uid/:token",
+    name: "activate-callback",
+    component: ActivateEmailCallback,
+  },
+  {
+    path: "/activate",
+    name: "activate",
+    component: ActivateEmailView,
+  },
+  {
+    path: "/reset-password/:uid/:token",
+    name: "reset-password-callback",
+    component: ResetPasswordCallback,
   },
   {
     path: "/about",

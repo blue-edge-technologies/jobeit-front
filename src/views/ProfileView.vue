@@ -29,7 +29,7 @@
                 src="https://django-jobwebsite.s3.amazonaws.com/default.jpg"
                 alt="Tihitena"
               />
-              <h3 class="desc">Tihitena</h3>
+              <h3 class="desc">{{username}}</h3>
             </div>
           </div>
           <div class="col-sm-6 updata-profile-btn text-center">
@@ -157,6 +157,11 @@ import NavBar from "@/components/NavBar.vue";
 import FooterSection from "@/components/FooterSection.vue";
 export default {
   components: { NavBar, FooterSection },
+  computed:{
+    username(){
+      return this.$store.getters.getUserName;
+    },
+  }
 };
 </script>
 

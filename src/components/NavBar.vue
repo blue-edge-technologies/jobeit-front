@@ -33,7 +33,7 @@
                     src="https://django-jobwebsite.s3.amazonaws.com/default.jpg"
                     width="60"
                     alt="" /></a
-                ><span class="">Welcome, Tihitena!</span>
+                ><span class="">Welcome, {{username}}</span>
               </div>
               <div v-if="dropshow">
                 <ul class="our-dropdown-menu">
@@ -61,8 +61,8 @@
                       ><span class="">Logout</span></a
                     > -->
 
-                    <router-link to="/login" class="dropdown-item header-link"
-                      ><span class="">Logout</span></router-link
+                    <a @click="logout" class="dropdown-item header-link"
+                      ><span class="">Logout</span></a
                     >
                   </li>
                 </ul>
@@ -79,13 +79,25 @@
 export default {
   data() {
     return {
-      Looggedin: false,
-      dropshow: false,
+      dropshow: false,      
     };
   },
   methods: {
     dropshowing() {
       this.dropshow = !this.dropshow;
+    },
+    logout(){
+      this.$store.dispatch('logout')
+    }
+  },
+  computed: {
+    Looggedin() {
+      return this.$store.getters.isAuthenticated;
+    },
+    username() {
+      console.log(this.$store.getters.getUserName)
+     return this.$store.getters.getUserName;
+    
     },
   },
 };
