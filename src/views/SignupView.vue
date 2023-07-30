@@ -19,7 +19,7 @@
                 Let's Get <span>Started</span>
               </h2>
 
-              <form
+              <div
                 method="POST"
                 class="auth-form contact-frm"
                 data-aos="fade-left"
@@ -32,10 +32,11 @@
 
                 <div class="field-colume">
                   <input
-                    type="text"
-                    name="username"
+                    v-model="email"
+                    type="email"
+                    name="email"
                     class="form-control"
-                    placeholder="Username"
+                    placeholder="Email"
                     maxlength="100"
                     autofocus
                     required
@@ -45,6 +46,7 @@
                 </div>
                 <div class="field-colume inner-flex">
                   <input
+                    v-model="first_name"
                     type="text"
                     name="first_name"
                     class="form-control"
@@ -54,6 +56,7 @@
                     id="id_first_name"
                   />
                   <input
+                    v-model="last_name"
                     type="text"
                     name="last_name"
                     class="form-control"
@@ -66,36 +69,16 @@
                                 <input type="text" placeholder="Last Name"> -->
                 </div>
 
-                <div class="field-colume">
-                  <input
-                    type="text"
-                    name="email"
-                    class="form-control"
-                    placeholder="Email"
-                    maxlength="100"
-                    required
-                    id="id_email"
-                  />
-                  <!-- <input type="text" placeholder="Email"> -->
-                </div>
                 <div class="field-colume inner-flex">
                   <input
+                    v-model="password"
                     type="password"
-                    name="password1"
+                    name="password"
                     class="form-control"
                     placeholder="Password"
                     maxlength="200"
                     required
                     id="id_password1"
-                  />
-                  <input
-                    type="password"
-                    name="password2"
-                    class="form-control"
-                    placeholder="Password"
-                    maxlength="200"
-                    required
-                    id="id_password2"
                   />
 
                   <!-- <input type="password" placeholder="Password"> -->
@@ -105,9 +88,9 @@
                 </div>
 
                 <div class="field-colume submit-btn">
-                  <button type="submit">Sign Up</button>
+                  <button @click="signup">Sign Up</button>
                 </div>
-              </form>
+              </div>
               <p class="desc-white mt-5 pt-3 fs-3">
                 Already a member?
                 <router-link class="form-link" to="/login">Log in</router-link>
@@ -120,6 +103,33 @@
     <!-- end-hero-section -->
   </div>
 </template>
+<script>
+export default {
+  name: "SignupView",
+  data() {
+    return {
+      email: "",
+      first_name: "",
+      last_name: "",
+      password: "",
+    };
+  },
+  methods: {
+    signup() {
+      this.$store
+        .dispatch("signup", {
+          email: this.email,
+          first_name: this.first_name,
+          last_name: this.last_name,
+          password: this.password,
+        })
+        .then(() => {
+          this.$router.push("/login");
+        });
+    },
+  },
+};
+</script>
   <style scoped>
 .desc-white {
   font-size: 2rem;

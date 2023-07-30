@@ -60,6 +60,15 @@ export default new Vuex.Store({
   },
 
   actions: {
+    async signup({ commit }, { email, first_name, last_name, password }) {
+      const response = await axios.post(`${API_URL}/auth/users/`, {
+        email,
+        first_name,
+        last_name,
+        password,
+      });
+      commit("setUser", response.data);
+    },
     async loadJobs({ commit }, { page, filters }) {
       const response = await axios.get(
         `${API_URL}/jobs/list/?${qs.stringify({ page, ...filters })}`
@@ -67,6 +76,7 @@ export default new Vuex.Store({
       commit("setJobs", response.data.results);
       return response.data;
     },
+
     async getJob({ commit }, { slug }) {
       const response = await axios.get(`${API_URL}/jobs/list/${slug}/`);
       commit("setJob", response.data);
