@@ -69,6 +69,24 @@ export default new Vuex.Store({
       });
       commit("setUser", response.data);
     },
+    async activateEmail(_, { uid, token }) {
+      await axios.post(`${API_URL}/auth/users/activation/`, {
+        uid,
+        token,
+      });
+    },
+    async resetPassword(_, { uid, token, new_password }) {
+      await axios.post(`${API_URL}/auth/users/reset_password_confirm/`, {
+        uid,
+        token,
+        new_password,
+      });
+    },
+    async requestResetPassword(_, { email }) {
+      await axios.post(`${API_URL}/auth/users/reset_password/`, {
+        email,
+      });
+    },
     async loadJobs({ commit }, { page, filters }) {
       const response = await axios.get(
         `${API_URL}/jobs/list/?${qs.stringify({ page, ...filters })}`

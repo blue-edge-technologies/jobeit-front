@@ -124,7 +124,7 @@ export default {
           password: this.password,
         })
         .then(() => {
-          this.$router.push("/login");
+          this.$router.push("/activate");
         });
     },
   },

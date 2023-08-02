@@ -11,10 +11,14 @@ export default {
     const uid = this.$route.params.uid;
     const token = this.$route.params.token;
 
-    this.$store.dispatch("activateEmail", {
-      uid,
-      token,
-    });
+    this.$store
+      .dispatch("activateEmail", {
+        uid,
+        token,
+      })
+      .then(() => {
+        this.$router.push("/login");
+      });
   },
   computed: {
     isError: function () {

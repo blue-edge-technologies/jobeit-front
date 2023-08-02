@@ -51,7 +51,9 @@
                     />
                     <label for="rememberme">Remember me</label>
                   </div>
-                  <a href="" class="text-white">Forgot Password?</a>
+                  <a href="#" class="text-white" v-b-modal.modal-1
+                    >Forgot Password?</a
+                  >
                 </div>
                 <div class="field-colume submit-btn mt-3">
                   <button @click="loginUser">Log In</button>
@@ -68,6 +70,17 @@
         </div>
       </div>
     </div>
+    <b-modal id="modal-1" title="Reset Password" @ok="handleReset">
+      <div class="field-colume">
+        <input v-model="email" type="email" placeholder="Email" name="email" />
+      </div>
+      <template #modal-footer="{ ok, hide }">
+        <b-button size="sm" variant="outline-secondary" @click="hide('forget')">
+          Forget it
+        </b-button>
+        <b-button size="sm" variant="success" @click="ok()"> Submit </b-button>
+      </template>
+    </b-modal>
     <!-- end-hero-section -->
   </div>
 </template>
@@ -91,6 +104,15 @@ export default {
           this.$router.push({
             name: "profile",
           });
+        });
+    },
+    handleReset() {
+      this.$store
+        .dispatch("requestResetPassword", {
+          email: this.email,
+        })
+        .then(() => {
+          alert("Please check your email for reset password link");
         });
     },
   },
