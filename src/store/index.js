@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import axios from "axios";
+import axios from "../axios";
 import qs from "qs";
 import { API_URL } from "@/config";
 
@@ -20,6 +20,24 @@ export default new Vuex.Store({
       access: null,
       refresh: null,
     },
+    userNeedsProfile: false,
+    profile: {
+      cv: null,
+      image: null,
+      cover_letter: null,
+      date_birth: null,
+      addressLine1: null,
+      addressLine2: null,
+      suburb: null,
+      city: null,
+      province: null,
+      phoneNumber: null,
+      job_seeker_education: null,
+      sex: null,
+      ethnicity: null,
+      marital_status: null,
+    },
+    updateProfileErrors: null,
   },
   getters: {
     getJobs(state) {
@@ -33,6 +51,18 @@ export default new Vuex.Store({
     },
     getUserName(state) {
       return state.user?.first_name;
+    },
+    getUser(state) {
+      return state.user;
+    },
+    getUserNeedsProfile(state) {
+      return state.userNeedsProfile;
+    },
+    getProfile(state) {
+      return state.profile;
+    },
+    getUpdateProfileErrors(state) {
+      return state.updateProfileErrors;
     },
   },
   mutations: {
@@ -56,6 +86,15 @@ export default new Vuex.Store({
       state.tokens.access = localStorage.getItem("access");
       state.tokens.refresh = localStorage.getItem("refresh");
       state.user = JSON.parse(localStorage.getItem("user"));
+    },
+    setProfile(state, profile) {
+      state.profile = profile;
+    },
+    setUserNeedsProfile(state, userNeedsProfile) {
+      state.userNeedsProfile = userNeedsProfile;
+    },
+    setUpdateProfileErrors(state, updateProfileErrors) {
+      state.updateProfileErrors = updateProfileErrors;
     },
   },
 
@@ -112,6 +151,74 @@ export default new Vuex.Store({
         headers: { Authorization: `JWT ${state.tokens.access}` },
       });
       commit("setUser", response.data);
+    },
+    async updateAccount({ commit, state }, { first_name, last_name }) {
+      const response = await axios.post(
+        `${API_URL}/auth/users/me/`,
+        { first_name, last_name },
+        {
+          headers: { Authorization: `JWT ${state.tokens.access}` },
+        }
+      );
+      commit("setUser", response.data);
+    },
+    async updateJobseeker({ commit, state }, formData) {
+      console.log(API_URL);
+      try {
+        const response = await axios.post(`${API_URL}/jobseeker/`, formData, {
+          headers: {
+            Authorization: `JWT ${state.tokens.access}`,
+            "Content-Type": "multipart/form-data",
+          },
+        });
+        commit("setProfile", response.data);
+      } catch (e) {
+        if (
+          e.response.status === 400 &&
+          e.response.data.user.includes(
+            "Job Seeker with this user already exists."
+          )
+        ) {
+          try {
+            const response = await axios.patch(
+              `${API_URL}/jobseeker/`,
+              formData,
+              {
+                headers: {
+                  Authorization: `JWT ${state.tokens.access}`,
+                  "Content-Type": "multipart/form-data",
+                },
+              }
+            );
+            commit("setProfile", response.data);
+          } catch (e) {
+            commit("setUpdateProfileErrors", e.response.data);
+          }
+        } else {
+          commit("setUpdateProfileErrors", e.response.data);
+        }
+      }
+    },
+    async getJobseeker({ commit, state }) {
+      try {
+        try {
+          const response = await axios.get(`${API_URL}/jobseeker/me/`, {
+            headers: { Authorization: `JWT ${state.tokens.access}` },
+          });
+          commit("setProfile", response.data);
+        } catch (e) {
+          if (
+            e?.response?.status === 400 &&
+            e?.response?.data?.error === "User Has no Profile yet"
+          ) {
+            commit("setUserNeedsProfile", true);
+          }
+          console.log(e);
+        }
+      } catch (err) {
+        // something went wront
+        console.error(err);
+      }
     },
     logout({ commit }) {
       commit("setToken", { access: null, refresh: null });

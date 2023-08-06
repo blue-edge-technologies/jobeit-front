@@ -16,6 +16,7 @@ export default {
       token: null,
       formSubmitted: false,
       PAGE_STATUS,
+      error: "",
     };
   },
   mounted() {
@@ -68,7 +69,7 @@ export default {
   },
   watch: {
     page_status: function () {
-      if (this.page_status === PAGE_STATUS.PASSWORD_RESET_REDIRECTING){
+      if (this.page_status === PAGE_STATUS.PASSWORD_RESET_REDIRECTING) {
         setTimeout(() => {
           this.$router.push("/login");
         }, 5000);
@@ -81,11 +82,18 @@ export default {
         return;
       }
       this.formSubmitted = true;
-      this.$store.dispatch("resetPassword", {
-        uid: this.uid,
-        token: this.token,
-        new_password: this.newPassword,
-      });
+      this.$store
+        .dispatch("resetPassword", {
+          uid: this.uid,
+          token: this.token,
+          new_password: this.newPassword,
+        })
+        .catch((error) => {
+          this.error =
+            error?.response?.data ||
+            "Failed to reset password. Please try again.";
+          alert(this.error);
+        });
     },
   },
 };
@@ -94,7 +102,14 @@ export default {
 <template>
   <div v-if="page_status === PAGE_STATUS.RESET_PASSWORD_FORM">
     <h1>Reset Password</h1>
-    <div v-if="showPasswordsDoNotMatchError">The two password fields do not match.</div>
+    <template v-if="error">
+      <div class="alert alert-danger" role="alert">
+        {{ error }}
+      </div>
+    </template>
+    <div v-if="showPasswordsDoNotMatchError">
+      The two password fields do not match.
+    </div>
     <div v-else-if="showPasswordTooShortError">
       Your password should be at least 8 characters long.
     </div>

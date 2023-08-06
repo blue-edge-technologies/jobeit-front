@@ -14,6 +14,11 @@
             </svg>
           </div>
         </div>
+        <template v-if="error">
+          <div class="alert alert-danger" role="alert">
+            {{ error }}
+          </div>
+        </template>
         <div class="d-flex gap-5 align-items-center my-3 flex-wrap">
           <img
             :src="jobDetails.logo"
@@ -159,8 +164,20 @@ export default {
   },
   methods: {
     getJobsDetail() {
-      this.$store.dispatch("getJob", { slug: this.$route.params.slug });
+      this.$store.dispatch("getJob", { slug: this.$route.params.slug }).catch(
+        (error) => {
+          this.error =
+            error?.response?.data ||
+            "Failed to get job details. Please try again.";
+          alert(this.error);
+        }
+      );
     },
+  },
+  data() {
+    return {
+      error: "",
+    };
   },
   computed: {
     jobDetails() {

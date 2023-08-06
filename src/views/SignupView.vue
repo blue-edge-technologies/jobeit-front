@@ -18,7 +18,11 @@
               <h2 class="banner-heading mb-5 pb-3">
                 Let's Get <span>Started</span>
               </h2>
-
+              <template v-if="error">
+                <div class="alert alert-danger" role="alert">
+                  {{ error }}
+                </div>
+              </template>
               <div
                 method="POST"
                 class="auth-form contact-frm"
@@ -112,6 +116,7 @@ export default {
       first_name: "",
       last_name: "",
       password: "",
+      error: "",
     };
   },
   methods: {
@@ -125,6 +130,11 @@ export default {
         })
         .then(() => {
           this.$router.push("/activate");
+        })
+        .catch((error) => {
+          this.error =
+            error?.response?.data?.error ||
+            "There was an error during sign up. Try Again!";
         });
     },
   },

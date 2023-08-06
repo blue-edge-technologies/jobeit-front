@@ -10,7 +10,11 @@
       </div>
     </div>
     <!-- end-banner-section -->
-
+    <template v-if="error">
+      <div class="alert alert-danger" role="alert">
+        {{ error }}
+      </div>
+    </template>
     <!-- start-search-form-section -->
     <section class="sob-search-section">
       <div class="container">
@@ -35,7 +39,7 @@
                   type="text"
                   name="job_company"
                   class="filter-job-input-box"
-                  placeholder="Search Job or Company or Skill"
+                  placeholder="Job or Company or Skill"
                   id="id_job_company"
                   v-model="filters.job_company"
                 />
@@ -255,7 +259,7 @@
           v-for="job in jobs"
           :job="job"
           :key="job.id"
-          ></job-item-card>
+        ></job-item-card>
 
         <b-pagination
           :total-rows="total_count"
@@ -319,9 +323,7 @@ export default {
   components: { FooterSection, NavBar, JobItemCard },
   computed: {
     jobs: function () {
-      return (
-        this.$store.getters.getJobs
-      );
+      return this.$store.getters.getJobs;
     },
     total_count: function () {
       return this.$store.getters.jobs_count || 800;
@@ -340,6 +342,7 @@ export default {
         skills: "",
         roles: "",
       },
+      error: "",
     };
   },
   mounted() {
@@ -357,14 +360,20 @@ export default {
   methods: {
     clickHandler: function (page) {
       this.$router.push({ query: { page: page } });
-      this.$store.dispatch("loadJobs", { page });
+      this.$store.dispatch("loadJobs", { page }).catch((err) => {
+        this.error = err || "Error loading jobs";
+      });
       window.scrollTo(0, 0);
     },
     applyFilters: function () {
-      this.$store.dispatch("loadJobs", {
-        page: 1,
-        filters: getAPIFilters(this.filters),
-      });
+      this.$store
+        .dispatch("loadJobs", {
+          page: 1,
+          filters: getAPIFilters(this.filters),
+        })
+        .catch((err) => {
+          this.error = err || "Error loading jobs";
+        });
     },
   },
 };

@@ -22,6 +22,11 @@
     <!-- start-profile-info-section -->
     <section class="profile-info-section">
       <div class="container">
+        <template v-if="error">
+          <div class="alert alert-danger" role="alert">
+            {{ error }}
+          </div>
+        </template>
         <div class="row culume-reverse-md align-items-center">
           <div class="col-sm-6 mt-5 align-self-start">
             <div class="profile-img">
@@ -29,7 +34,7 @@
                 src="https://django-jobwebsite.s3.amazonaws.com/default.jpg"
                 alt="Tihitena"
               />
-              <h3 class="desc">{{username}}</h3>
+              <h3 class="desc">{{ username }}</h3>
             </div>
           </div>
           <div class="col-sm-6 updata-profile-btn text-center">
@@ -61,9 +66,9 @@
                     fill="#0146B1"
                   />
                 </svg>
-                <p class="desc">resume.docx</p>
+                <p class="desc">Resume</p>
                 <a
-                  href="https://django-jobwebsite.s3.amazonaws.com/resume.docx"
+                  :href="`${API_URL}/${profile?.cv}`"
                   download
                   class="common-btn-sm"
                   >Download</a
@@ -88,7 +93,7 @@
                       ></path>
                     </svg>
                   </span>
-                  <a href="">E-mail: None</a>
+                  <a href="">E-mail: {{ user?.email }}</a>
                 </li>
                 <li>
                   <span>
@@ -99,7 +104,7 @@
                       ></path>
                     </svg>
                   </span>
-                  <a href="">Phone number: </a>
+                  <a href="">Phone number: {{ profile?.phoneNumber }}</a>
                 </li>
                 <li>
                   <span>
@@ -110,7 +115,7 @@
                       />
                     </svg>
                   </span>
-                  <a href=""> Nationality: None</a>
+                  <a href=""> Ethnicity: {{ profile?.ethnicity }}</a>
                 </li>
                 <li>
                   <span>
@@ -132,10 +137,17 @@
             role="tabpanel"
             aria-labelledby="overview-tab"
           >
-            <h3 class="small-heading mt-5 pt-4 mb-5"><span>About</span></h3>
+            <h3 class="small-heading mt-5 pt-4 mb-5"><span></span></h3>
             <p class="desc fs-3"></p>
             <h3 class="small-heading mt-5 pt-4 mb-5"><span>Education</span></h3>
-            <ul class="list-with-icon"></ul>
+            <ul class="list-with-icon">
+              <li
+                v-for="(education, index) in profile?.jobSeekerEducation || []"
+                :key="index"
+              >
+                {{ education.degree }}
+              </li>
+            </ul>
             <h3 class="small-heading mt-5 pt-4 mb-5">
               <span>Experience</span>
             </h3>
@@ -153,15 +165,47 @@
 </template>
 
 <script>
+import { API_URL } from "@/config";
+
 import NavBar from "@/components/NavBar.vue";
 import FooterSection from "@/components/FooterSection.vue";
 export default {
   components: { NavBar, FooterSection },
-  computed:{
-    username(){
+  computed: {
+    username() {
       return this.$store.getters.getUserName;
     },
-  }
+    userNeedsProfile() {
+      return this.$store.getters.getUserNeedsProfile;
+    },
+    profile() {
+      return this.$store.getters.getProfile;
+    },
+    user() {
+      return this.$store.getters.getUser;
+    },
+  },
+  mounted() {
+    this.$store.dispatch("getJobseeker").catch((err) => {
+      this.error = err || "An error occurred. Please try again later.";
+    });
+    if (this.userNeedsProfile) {
+      this.$router.push("/update-profile");
+    }
+  },
+  watch: {
+    userNeedsProfile() {
+      if (this.userNeedsProfile) {
+        this.$router.push("/update-profile");
+      }
+    },
+  },
+  data() {
+    return {
+      API_URL,
+      error: null,
+    };
+  },
 };
 </script>
 

@@ -18,6 +18,11 @@
               <h2 class="banner-heading mb-5 pb-5">
                 Welcome <span>Back</span>
               </h2>
+              <template v-if="error">
+                <div class="alert alert-danger" role="alert">
+                  {{ error }}
+                </div>
+              </template>
               <div class="contact-frm" data-aos="fade-left" method="post">
                 <input
                   type="hidden"
@@ -91,6 +96,7 @@ export default {
     return {
       email: "",
       password: "",
+      error: "",
     };
   },
   methods: {
@@ -104,6 +110,10 @@ export default {
           this.$router.push({
             name: "profile",
           });
+        })
+        .catch((err) => {
+          this.error =
+            err?.response?.data?.message || "Something went wrong while login";
         });
     },
     handleReset() {

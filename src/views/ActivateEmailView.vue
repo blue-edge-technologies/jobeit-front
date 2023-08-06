@@ -18,6 +18,11 @@
       </h2>
       <button @click="resentActivationEmail">Resend activation email</button>
     </div>
+    <template v-if="error">
+      <div class="alert alert-danger" role="alert">
+        {{ error }}
+      </div>
+    </template>
   </div>
 </template>
 
@@ -26,13 +31,23 @@ export default {
   name: "ActivateEmail",
   methods: {
     resentActivationEmail() {
-      this.$store.dispatch("resendActivationEmail");
+      this.$store.dispatch("resendActivationEmail").catch((error) => {
+        this.error =
+          error?.response?.data ||
+          "Failed to send activation email. Please try again.";
+        alert(this.error);
+      });
     },
   },
   computed: {
     activationError() {
       return this.$store.getters.isResendActivationEmailError;
     },
+  },
+  data() {
+    return {
+      error: "",
+    };
   },
 };
 </script>

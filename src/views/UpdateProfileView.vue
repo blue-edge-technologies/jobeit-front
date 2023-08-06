@@ -15,6 +15,13 @@
     <section class="profile-info-section">
       <div class="container">
         <div class="row">
+          <template v-if="updateProfileErrors">
+            <template v-for="[k, v] in updateProfileErrors">
+              <div class="alert alert-danger" role="alert" :key="k">
+                {{ k }}: {{ v }}
+              </div>
+            </template>
+          </template>
           <div class="col-md-6">
             <div class="input-field">
               <label for="institution">Institution</label
@@ -90,7 +97,12 @@
           <div class="col-md-6">
             <div class="input-field">
               <label for="ethnicity">Ethnicity</label
-              ><select class="form-control" name="ethnicity" id="id_ethnicity" v-model="ethnicity">
+              ><select
+                class="form-control"
+                name="ethnicity"
+                id="id_ethnicity"
+                v-model="ethnicity"
+              >
                 <option
                   v-for="ethnicity in ETHNICITY_OPTIONS"
                   :value="ethnicity"
@@ -212,7 +224,12 @@
             <div class="input-field">
               <label for="province">Province</label>
 
-              <select class="form-control" name="province" id="id_province" v-model="province">
+              <select
+                class="form-control"
+                name="province"
+                id="id_province"
+                v-model="province"
+              >
                 <option
                   v-for="province in PROVINCE_OPTIONS"
                   v-bind:key="province"
@@ -273,96 +290,6 @@
               />
             </div>
           </div>
-          <!-- <div
-            class="col-md-6 d-flex align-items-center gap-4 my-4 justify-content-between"
-          >
-            <p class="desc mt-2">Profile Picture:</p>
-            <input
-              type="file"
-              name="avatar"
-              class="form-control-file"
-              accept="image/*"
-              id="id_avatar"
-            />
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="profession">Profession</label>
-              <input
-                type="text"
-                name="profession"
-                class="form-control"
-                id="id_profession"
-              />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="nationality">Nationality</label>
-              <input
-                type="text"
-                name="nationality"
-                class="form-control"
-                id="id_nationality"
-              />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="facebook">Facebook</label>
-              <input
-                type="url"
-                name="facebook"
-                class="form-control"
-                id="id_facebook"
-              />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="twitter">Twitter</label>
-              <input
-                type="url"
-                name="twitter"
-                class="form-control"
-                id="id_twitter"
-              />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="Linkedin">Linkedin</label>
-              <input
-                type="url"
-                name="linkedin"
-                class="form-control"
-                id="id_linkedin"
-              />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <label for="WhatsApp">WhatsApp</label>
-              <input
-                type="url"
-                name="whatsapp"
-                class="form-control"
-                id="id_whatsapp"
-              />
-            </div>
-          </div>
-
-          <div
-            class="col-md-6 d-flex align-items-center gap-4 my-4 justify-content-between"
-          >
-            <p class="desc mt-2">Upload Resume:</p>
-            <input
-              type="file"
-              name="resume"
-              class="form-control-file"
-              id="id_resume"
-            />
-          </div> -->
         </div>
         <div class="col-md-12 text-end">
           <button
@@ -423,6 +350,23 @@ const ETHNICITY_OPTIONS = Object.freeze({
   Chinese: "Chinese",
 });
 
+function prepareEducation(educationArr) {
+  // jobSeekerEducation[0].institution=12
+  // jobSeekerEducation[0].qualification=12
+  // jobSeekerEducation[0].degree=12
+  // jobSeekerEducation[0].start_date=2023-01-31
+  // jobSeekerEducation[0].graduated=12
+  // jobSeekerEducation[0].major_subject=12
+  return educationArr.flatMap((education, index) => [
+    [`jobSeekerEducation[${index}].institution`, education.institution],
+    [`jobSeekerEducation[${index}].qualification`, education.qualification],
+    [`jobSeekerEducation[${index}].degree`, education.degree],
+    [`jobSeekerEducation[${index}].start_date`, education.start_date],
+    [`jobSeekerEducation[${index}].graduated`, education.graduated],
+    [`jobSeekerEducation[${index}].major_subject`, education.major_subject],
+  ]);
+}
+
 export default {
   components: { FooterSection, NavBar },
   data() {
@@ -450,6 +394,8 @@ export default {
       cv: "",
       image: "",
       cover_letter: "",
+
+      error: "",
 
       PROVINCE_OPTIONS,
       MARITAL_STATUS_OPTIONS,
@@ -483,15 +429,16 @@ export default {
       formData.append("city", this.city);
       formData.append("province", this.province);
       formData.append("phoneNumber", this.phoneNumber);
-      formData.append(
-        "job_seeker_education[]",
-        JSON.stringify(this.jobSeekerEducation)
+      prepareEducation([this.jobSeekerEducation]).forEach(([key, value]) =>
+        formData.append(key, value)
       );
       formData.append("ethnicity", this.ethnicity);
       formData.append("sex", this.sex);
       formData.append("marital_status", this.marital_status);
 
-      this.$store.dispatch("updateProfile", formData);
+      this.$store.dispatch("updateJobseeker", formData).catch((err) => {
+        this.error = err || "Failed to update profile";
+      });
     },
   },
   computed: {
@@ -504,6 +451,7 @@ export default {
         "city",
         "province",
         "phoneNumber",
+        "jobSeekerEducation",
       ];
       console.log(required.forEach((field) => console.log(field, this[field])));
       return required.some((field) => !this[field]);
@@ -513,6 +461,16 @@ export default {
     },
     isLoading() {
       return this.$store.getters.isLoading;
+    },
+    updateProfileErrors() {
+      // return this.$store.getters.getUpdateProfileErrors;
+      if (
+        this.$store.getters.getUpdateProfileErrors !== null &&
+        Object.keys(this.$store.getters.getUpdateProfileErrors).length > 0
+      ) {
+        return Object.entries(this.$store.getters.getUpdateProfileErrors);
+      }
+      return false;
     },
   },
 };
