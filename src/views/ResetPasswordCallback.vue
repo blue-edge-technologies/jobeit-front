@@ -290,11 +290,11 @@ export default {
     display: none;
   }
 
-  .df-mobile {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
-  }
+.df-mobile {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
 
   .hero-left-part {
     padding: 5rem 5rem 15rem 3rem;
