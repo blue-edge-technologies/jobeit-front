@@ -89,12 +89,12 @@
         <div class="hero-imags">
           <img
             class="hero-imags1"
-            src="/static/new/media/img/hero-img1.png"
+            src="../assets/img/hero-img1.png"
             alt=""
           />
           <img
             class="hero-imags2"
-            src="/static/new/media/img/hero-img2.png"
+            src="../assets/img/hero-img2.png"
             alt=""
           />
         </div>

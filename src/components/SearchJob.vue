@@ -199,7 +199,7 @@
           <div class="col-md-6 text-center">
             <img
               class="img-work"
-              src="/static/new/media/img/work-img.png"
+              src="../assets/img/work-img.png"
               alt=""
             />
           </div>

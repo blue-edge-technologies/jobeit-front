@@ -57,7 +57,7 @@
           <div class="hero-imags">
             <img
               class="hero-imags1"
-              src="/static/new/media/img/contact-banner.png"
+              src="../assets/img/contact-banner.png"
               alt=""
             />
           </div>

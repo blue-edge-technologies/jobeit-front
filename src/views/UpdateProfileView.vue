@@ -74,7 +74,7 @@
             <div class="input-field">
               <label for="graduated">Graduated</label
               ><input
-                type="text"
+                type="date"
                 v-model="jobSeekerEducation.graduated"
                 name="graduated"
                 class="form-control"
@@ -98,7 +98,7 @@
             <div class="input-field">
               <label for="ethnicity">Ethnicity</label
               ><select
-                class="form-control"
+                class="form-control-select"
                 name="ethnicity"
                 id="id_ethnicity"
                 v-model="ethnicity"
@@ -135,7 +135,7 @@
                 class="form-control"
                 id="id_sex"
               /> -->
-              <select class="form-control" name="sex" id="id_sex" v-model="sex">
+              <select class="form-control-select" name="sex" id="id_sex" v-model="sex">
                 <option
                   v-for="sex in SEX_OPTIONS"
                   :value="sex"
@@ -158,7 +158,7 @@
               /> -->
               <select
                 v-model="marital_status"
-                class="form-control"
+                class="form-control-select"
                 name="marital_status"
                 id="id_marital_status"
               >
@@ -532,6 +532,8 @@ input::placeholder,
 textarea::placeholder {
   color: #9a9dad;
 }
+
+
 /* header style */
 header {
   padding: 3rem 0;
@@ -1193,10 +1195,40 @@ footer {
 .input-field textarea {
   width: 100%;
   background: rgba(53, 219, 255, 0.1);
-  border: 0.3rem solid rgba(255, 255, 255, 0.3);
+  /* border: 0.3rem solid rgba(255, 255, 255, 0.3); */
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
   border-radius: 4rem;
   padding: 1.5rem 2rem;
   outline: 0;
+}
+
+.input-field select {
+  width: 100%;
+  content: "Select";
+  background: rgba(53, 219, 255, 0.1);
+  /* only bottom border */
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+
+  /* border-bottom: 3rem solid rgba(255, 255, 255, 0.3); */
+  border-radius: 4rem;
+  padding: 1.5rem 2rem;
+  outline: 0;
+}
+.input-field select::after {
+  /* Set the asterisk (*) as the content */
+  content: '*';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none; /* Ensure the arrow doesn't interfere with clicking the select element */
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
 }
 .input-field textarea {
   height: 15rem;

@@ -7,7 +7,7 @@
           <div class="col-sm-6 dn-sm">
             <div class="sign-left text-center">
               <img
-                src="/static/new/media/img/sign-up.png"
+                src="../assets/img/sign-up.png"
                 class="img-fluid"
                 alt=""
               />

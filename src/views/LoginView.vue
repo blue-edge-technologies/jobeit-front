@@ -7,7 +7,7 @@
           <div class="col-sm-6 dn-sm">
             <div class="sign-left text-center">
               <img
-                src="/static/new/media/img/sign-in.png.png"
+                src="../assets/img/sign-in.png.png"
                 class="img-fluid"
                 alt=""
               />
@@ -76,8 +76,8 @@
       </div>
     </div>
     <b-modal id="modal-1" title="Reset Password" @ok="handleReset">
-      <div class="field-colume">
-        <input v-model="email" type="email" placeholder="Email" name="email" />
+      <div class="field-colume input-field">
+        <input v-model="email" type="email" placeholder="Email" name="email" class = "form-control"/>
       </div>
       <template #modal-footer="{ ok, hide }">
         <b-button size="sm" variant="outline-secondary" @click="hide('forget')">
