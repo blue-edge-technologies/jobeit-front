@@ -403,6 +403,9 @@ html {
   font-size: 1.8rem;
   background: #f8f5ee;
 }
+.container {
+  margin: auto;
+}
 dl,
 ol,
 ul {
