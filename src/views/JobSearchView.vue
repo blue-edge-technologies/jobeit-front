@@ -390,7 +390,7 @@ export default {
 
 * {
   padding: 0;
-  margin: 0;
+  margin: auto;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
