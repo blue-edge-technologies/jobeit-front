@@ -23,9 +23,9 @@
         </h2>
         <div class="search-from">
           <div class="field-wapper">
-            <div class="scroll-bar">
+            <!-- <div class="scroll-bar">
               <div></div>
-            </div>
+            </div> -->
 
             <div class="">
               <div class="search-fields">
@@ -34,8 +34,27 @@
                     d="M20.333 6.93473V3.6014H13.6663V6.93473H20.333ZM3.66634 11.9347V26.9347C3.66634 27.8514 4.41634 28.6014 5.33301 28.6014H28.6663C29.583 28.6014 30.333 27.8514 30.333 26.9347V11.9347C30.333 11.0181 29.583 10.2681 28.6663 10.2681H5.33301C4.41634 10.2681 3.66634 11.0181 3.66634 11.9347ZM30.333 6.93473C32.183 6.93473 33.6663 8.41807 33.6663 10.2681V28.6014C33.6663 30.4514 32.183 31.9347 30.333 31.9347H3.66634C1.81634 31.9347 0.333008 30.4514 0.333008 28.6014L0.349674 10.2681C0.349674 8.41807 1.81634 6.93473 3.66634 6.93473H10.333V3.6014C10.333 1.7514 11.8163 0.268066 13.6663 0.268066H20.333C22.183 0.268066 23.6663 1.7514 23.6663 3.6014V6.93473H30.333Z"
                     fill="#0146B1" />
                 </svg>
+                <input type="text" name="Title" class="filter-job-input-box" placeholder="Search Job Title"
+                  id="id_title" v-model="filters.title" />
+              </div>
+
+              <!-- <div class="search-fields">
+                <svg width="20" height="20" viewBox="0 0 34 32" fill="none">
+                  <path
+                    d="M20.333 6.93473V3.6014H13.6663V6.93473H20.333ZM3.66634 11.9347V26.9347C3.66634 27.8514 4.41634 28.6014 5.33301 28.6014H28.6663C29.583 28.6014 30.333 27.8514 30.333 26.9347V11.9347C30.333 11.0181 29.583 10.2681 28.6663 10.2681H5.33301C4.41634 10.2681 3.66634 11.0181 3.66634 11.9347ZM30.333 6.93473C32.183 6.93473 33.6663 8.41807 33.6663 10.2681V28.6014C33.6663 30.4514 32.183 31.9347 30.333 31.9347H3.66634C1.81634 31.9347 0.333008 30.4514 0.333008 28.6014L0.349674 10.2681C0.349674 8.41807 1.81634 6.93473 3.66634 6.93473H10.333V3.6014C10.333 1.7514 11.8163 0.268066 13.6663 0.268066H20.333C22.183 0.268066 23.6663 1.7514 23.6663 3.6014V6.93473H30.333Z"
+                    fill="#0146B1" />
+                </svg>
                 <input type="text" name="keywords" class="filter-job-input-box" placeholder="Search keywords"
                   id="id_keywords" v-model="filters.keywords" />
+              </div> -->
+              <div class="search-fields">
+                <svg width="20" height="20" viewBox="0 0 40 40" fill="none">
+                  <path
+                    d="M20 0C8.96 0 0 8.96 0 20C0 31.04 8.96 40 20 40C31.04 40 40 31.04 40 20C40 8.96 31.04 0 20 0ZM20 36.8C11.2 36.8 4.8 30.4 4.8 21.6C4.8 12.8 11.2 6.4 20 6.4C28.8 6.4 35.2 12.8 35.2 21.6C35.2 30.4 28.8 36.8 20 36.8ZM20 11.2C14.08 11.2 9.6 15.68 9.6 21.6C9.6 27.52 14.08 32 20 32C25.92 32 30.4 27.52 30.4 21.6C30.4 15.68 25.92 11.2 20 11.2ZM20 28.8C16.64 28.8 14.4 26.56 14.4 23.2C14.4 19.84 16.64 17.6 20 17.6C23.36 17.6 25.6 19.84 25.6 23.2C25.6 26.56 23.36 28.8 20 28.8Z"
+                    fill="#0146B1"></path>
+                </svg>
+                <input type="text" name="company" class="filter-job-input-box" placeholder="Filter by Company"
+                  id="id_company" v-model="filters.company" />
               </div>
 
               <div class="search-fields">
@@ -50,11 +69,7 @@
               <!-- category -->
               <div class="search-fields">
                 <!-- gearsvg -->
-                <svg width="20" height="20" viewBox="0 0 40 40" fill="none">
-                  <path
-                    d="M20 0C8.96 0 0 8.96 0 20C0 31.04 8.96 40 20 40C31.04 40 40 31.04 40 20C40 8.96 31.04 0 20 0ZM20 36.8C11.2 36.8 4.8 30.4 4.8 21.6C4.8 12.8 11.2 6.4 20 6.4C28.8 6.4 35.2 12.8 35.2 21.6C35.2 30.4 28.8 36.8 20 36.8ZM20 11.2C14.08 11.2 9.6 15.68 9.6 21.6C9.6 27.52 14.08 32 20 32C25.92 32 30.4 27.52 30.4 21.6C30.4 15.68 25.92 11.2 20 11.2ZM20 28.8C16.64 28.8 14.4 26.56 14.4 23.2C14.4 19.84 16.64 17.6 20 17.6C23.36 17.6 25.6 19.84 25.6 23.2C25.6 26.56 23.36 28.8 20 28.8Z"
-                    fill="#0146B1"></path>
-                </svg>
+                
                 <input type="text" name="category" class="filter-job-input-box" placeholder="Category" id="id_category"
                   v-model="filters.category" />
               </div>
@@ -73,12 +88,12 @@
                 <div class="filter">
                   <div class="custom-input experience_level_max">
                     <input type="number" name="experience_level_max" class="filter-job-input-box" placeholder="Experience Max"
-                      id="id_experience_max" :min="filters.experience_level_min || 0" v-model="filters.experience_level_max" max="50" />
+                      id="id_experience_max"  v-model="filters.experience_level_max" max="50" />
                   </div>
                 </div>
               </div>
 
-              <div class="search-fields" style="padding: inherit">
+              <!-- <div class="search-fields" style="padding: inherit">
                 <div class="filter">
                   <div class="custom-input salary_min">
                     <input type="number" name="salary_min" class="filter-job-input-box" placeholder="Salary Min"
@@ -94,9 +109,9 @@
                       id="id_Salary_max" :min="filters.salary_min || 0" v-model="filters.salary_max" />
                   </div>
                 </div>
-              </div>
+              </div> -->
 
-              <div class="search-fields" style="padding: inherit">
+              <!-- <div class="search-fields" style="padding: inherit">
                 <div class="filter">
                   <div class="custom-input rating_min">
                     <input type="number" name="rating_min" class="filter-job-input-box" placeholder="Rating Min"
@@ -112,7 +127,7 @@
                       id="id_Rating_max" :min="filters.rating_min || 0" max="5" v-model="filters.rating_max" />
                   </div>
                 </div>
-              </div>
+              </div> -->
 
               
 
@@ -164,7 +179,10 @@
 
     <section class="related-job-section">
       <template v-if="total_count">
-      <div class="container">
+        <div class="container">
+        <h2 class="section-heading">
+            Found <span>{{this.$store.getters.jobs_count}}</span> jobs
+          </h2>
         <job-item-card v-for="job in jobs" :job="job" :key="job.id"></job-item-card>
 
         <b-pagination :total-rows="total_count" :per-page="20" v-model="currentPage" @change="clickHandler" align="fill"
@@ -205,23 +223,32 @@ function getLimitDatePosted(date_posted) {
     "Last 90 Days": new Date().setDate(new Date().getDate() - 90),
   }[date_posted];
   if (time) {
-    return new Date(time).toISOString();
+    const date = new Date(time);
+    const year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    month = month < 10 ? `0${month}` : month;
+    let day = date.getDate();
+    day = day < 10 ? `0${day}` : day;
+    return `${year}-${month}-${day}`;
+    // return new Date(time).toISOString();
   }
   return undefined;
 }
 
 function getAPIFilters(query) {
   return {
-    title__icontains: query.keywords || undefined,
+    title__icontains: query.title || undefined,
+    company__icontains: query.company || undefined,
+    search: query.keywords || undefined,
     location__icontains: query.location || undefined,
     category__icontains: query.category || undefined, 
-    experience_level__gte: query.experience_level_min || undefined,
-    experience_level__lte: query.experience_level_max || undefined,
+    minimum_experience__gte: query.experience_level_min || undefined,
+    minimum_experience__lte: query.experience_level_max || undefined,
     salary__gte: query.salary_min || undefined,
     salary__lte: query.salary_max || undefined,
     rating__gte: query.rating_min || undefined,
     rating__lte: query.rating_max || undefined,
-    date_posted__gte: getLimitDatePosted(query.date_posted_min) || undefined,
+    date_posted__gte: getLimitDatePosted(query.date_posted) || undefined,
   };
 }
 
@@ -242,6 +269,8 @@ export default {
     return {
       currentPage: 1,
       filters: {
+        title:"",
+        company:"",
         keywords: "",
         location: "",
         category: "",
@@ -253,7 +282,7 @@ export default {
 
         rating_min: null,
         rating_max: null,
-
+        date_posted:"",
         date_posted_min: "",
         date_posted_max: "",
       },
@@ -262,6 +291,8 @@ export default {
   },
   mounted() {
     this.currentPage = this.$route.query.page || 1;
+    this.filters.title = this.$route.query.title || "";
+    this.filters.company = this.$route.query.company || "";
     this.filters.keywords = this.$route.query.keywords || "";
     this.filters.location = this.$route.query.location || "";
     this.filters.category = this.$route.query.category || "";
@@ -290,6 +321,7 @@ export default {
       const query = { ...this.$route.query, ...this.filters, page: 1 };
       const queryString = QueryString.stringify(query);
       history.pushState(null, null, `?${queryString}`);
+      console.log(getAPIFilters(this.filters))
       this.$store
         .dispatch("loadJobs", {
           page: 1,
