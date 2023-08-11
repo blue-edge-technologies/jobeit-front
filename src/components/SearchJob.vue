@@ -31,7 +31,7 @@
               with the right freelancers
             </p>
           </div>
-          <div class="col-md-4">
+          <!-- <div class="col-md-4">
             <div class="arrow-btns">
               <div class="arrow-btn prev">
                 <svg
@@ -58,7 +58,7 @@
                 </svg>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="slider-inner mt-5">
           <div id="owl-demo" class="owl-carousel owl-theme">

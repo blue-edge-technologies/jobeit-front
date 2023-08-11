@@ -36,16 +36,19 @@ const routes = [
     path: "/profile",
     name: "profile",
     component: ProfileView,
+    meta: { authRequired: true, }
   },
   {
     path: "/update-profile",
     name: "update-profile",
     component: UpdateProfileView,
+    meta: { authRequired: true, }
   },
   {
     path: "/update-account",
     name: "update-account",
     component: UpdateAccountView,
+    meta: { authRequired: true, }
   },
   {
     path: "/job-search",
@@ -90,6 +93,7 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+
   },
 ];
 
@@ -97,6 +101,18 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
+});
+
+router.beforeEach(async (to, _, next) => {
+  const isAuthenticated = localStorage.getItem("access");
+  if (to.matched.some((route) => route.meta.authRequired)) {
+    if (isAuthenticated) {
+      return next();
+    } else {
+      return next({ name: "login" });
+    }
+  }
+  return next();
 });
 
 export default router;

@@ -27,6 +27,13 @@
       </div>
     </div>
     <div class="related-bottom">
+      <span>
+        {{  new Date(job.date_posted).toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        }) }}
+      </span>
       <div class="job-tags">
         <a href="">{{ job.contract_type1 }}</a>
       </div>

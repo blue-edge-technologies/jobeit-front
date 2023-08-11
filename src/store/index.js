@@ -38,6 +38,7 @@ export default new Vuex.Store({
       marital_status: null,
     },
     updateProfileErrors: null,
+    jobsCount: null
   },
   getters: {
     getJobs(state) {
@@ -64,10 +65,16 @@ export default new Vuex.Store({
     getUpdateProfileErrors(state) {
       return state.updateProfileErrors;
     },
+    jobs_count(state) {
+      return state.jobsCount;
+    }
   },
   mutations: {
     setJobs(state, jobs) {
       state.jobs = jobs;
+    },
+    setJobsCount(state, jobsCount) {
+      state.jobsCount = jobsCount;
     },
     setJob(state, job) {
       state.job = job;
@@ -131,6 +138,7 @@ export default new Vuex.Store({
         `${API_URL}/jobs/list/?${qs.stringify({ page, ...filters })}`
       );
       commit("setJobs", response.data.results);
+      commit("setJobsCount", response.data.count);
       return response.data;
     },
 
