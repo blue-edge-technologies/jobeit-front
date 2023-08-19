@@ -18,19 +18,19 @@
           <h3 class="footer-heading">Follow us</h3>
           <div class="social-icons mt-5 m-auto">
             <a href=""
-              ><img src="/static/new/media/img/instragrame.png" alt=""
+              ><img src="../assets/img/instragrame.png" alt=""
             /></a>
             <a href=""
-              ><img src="/static/new/media/img/facebook.png" alt=""
+              ><img src="../assets/img/facebook.png" alt=""
             /></a>
             <a href=""
-              ><img src="/static/new/media/img/linkdin.png" alt=""
+              ><img src="../assets/img/linkdin.png" alt=""
             /></a>
           </div>
         </div>
       </div>
       <p class="copywrite-text">
-        2023 &copy; Jobcy - Job Listing Page Template by kavyabhargavay
+        2023 &copy; Jobiet - Job Listing Page Template by kavyabhargavay
       </p>
     </div>
   </footer>

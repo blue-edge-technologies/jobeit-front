@@ -948,6 +948,7 @@ footer {
   -ms-flex-preferred-size: 30%;
   flex-basis: 30%;
   background: #b3fd4c;
+  height: 120px;
 }
 
 /* related-job */
@@ -1452,6 +1453,7 @@ footer {
   .banner-right {
     -ms-flex-preferred-size: 25%;
     flex-basis: 25%;
+    height: 120px;
   }
 
   .bolg-img {

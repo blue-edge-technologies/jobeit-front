@@ -6,7 +6,7 @@
         <div class="hero-left-part contact-hero-left-part">
           <h1 class="hero-heading"><span>Get</span> in Touch</h1>
           <p class="desc-white pt-5 pb-5">
-            Start working with Jobcy that can provide everything you need to
+            Start working with Jobiet that can provide everything you need to
             generate awareness, drive traffic, connect
           </p>
           <form
@@ -83,7 +83,7 @@
                 />
               </svg>
             </span>
-            <a href=""> contactus@Jobcy.com</a>
+            <a href=""> contactus@Jobiet.com</a>
           </li>
           <li>
             <span>
@@ -113,7 +113,7 @@
         </ul>
         <img
           class="img-map mt-5 mb-5"
-          src="/static/new/media/img/map.png"
+          src="../assets/img/map.png"
           alt=""
         />
       </div>
@@ -556,7 +556,7 @@ header {
 
 .hero-left-part {
   background: #0146b1;
-  padding: 10rem 5rem 22rem 7rem;
+  padding: 10rem 5rem 9rem 7rem;
   position: relative;
 }
 

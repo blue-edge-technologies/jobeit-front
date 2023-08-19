@@ -4,7 +4,7 @@
     <div class="banner-section">
       <div class="banner-row">
         <div class="banner-left">
-          <h2 class="banner-heading">Our Jobcy <span>Blog</span></h2>
+          <h2 class="banner-heading">Our Jobiet <span>Blog</span></h2>
         </div>
         <div class="banner-right"></div>
       </div>

@@ -3,7 +3,7 @@
     <div class="hero-row hero-row-index">
       <div class="hero-left-part hero-left-part-index">
         <h1 class="hero-heading hero-pr-10">
-          Find your dream jobs with <span>Jobcy</span>
+          Find your dream jobs with <span>Jobiet</span>
         </h1>
         <form action="/job-search/">
           <div class="search-box">
