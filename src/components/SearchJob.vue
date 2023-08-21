@@ -258,18 +258,19 @@ export default {
   fill: #fff;
 }
 /* jos slider */
-#owl-demo .item {
+.item {
   background: #fff;
   padding: 5rem 2rem;
   border-radius: 3rem;
   -webkit-transition: 0.1s;
   -o-transition: 0.1s;
   transition: 0.1s;
-  margin: 1.5rem;
+  margin: 1rem;
   -webkit-box-shadow: 0px 0px 12px 0px rgb(0 0 0 / 10%);
   box-shadow: 0px 0px 12px 0px rgb(0 0 0 / 10%);
+  max-width: 828px !important;
 }
-#owl-demo .item:hover {
+.item:hover {
   color: #fff;
   background: -webkit-gradient(
     linear,
@@ -281,12 +282,11 @@ export default {
   background: -o-linear-gradient(top, #0d57cb 0%, #0141a4 100%);
   background: linear-gradient(180deg, #0d57cb 0%, #0141a4 100%);
 }
-
-#owl-demo .item h2 {
+.item h2 {
   font-size: 2.5rem;
   font-weight: 700;
 }
-#owl-demo .item .job-adddress {
+.item .job-adddress {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -296,30 +296,30 @@ export default {
   gap: 2rem;
   margin: 2.5rem 0;
 }
-#owl-demo .item .job-adddress svg {
-  width: 2rem;
+.item .job-adddress svg {
+  width: 1.5rem;
   fill: #0d57cb;
 }
-#owl-demo .item:hover svg {
+.item:hover svg {
   fill: #fff;
 }
-#owl-demo .item .job-adddress span {
+.item .job-adddress span {
   font-weight: 400;
   font-size: 2rem;
 }
-#owl-demo .item .job-tags {
+.item .job-tags {
   margin: 4.5rem 0;
   display: block;
 }
 
-#owl-demo .item:hover .job-tags a {
+.item:hover .job-tags a {
   color: #fff;
 }
 
-#owl-demo .item .company-logo img {
+.item .company-logo img {
   width: 5rem;
 }
-#owl-demo .item .company-logo span {
+.item .company-logo span {
   font-size: 2rem;
   font-weight: 600;
   margin-left: 1rem;
