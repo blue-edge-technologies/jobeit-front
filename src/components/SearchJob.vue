@@ -31,9 +31,9 @@
               with the right freelancers
             </p>
           </div>
-          <!-- <div class="col-md-4">
+          <div class="col-md-4">
             <div class="arrow-btns">
-              <div class="arrow-btn prev">
+              <div class="arrow-btn prev" @click="prevSlide">
                 <svg
                   viewBox="0 0 31 31"
                   fill="none"
@@ -44,7 +44,7 @@
                   />
                 </svg>
               </div>
-              <div class="arrow-btn next">
+              <div class="arrow-btn next" @click="nextSlide">
                 <svg
                   width="31"
                   height="31"
@@ -58,97 +58,32 @@
                 </svg>
               </div>
             </div>
-          </div> -->
+          </div>
         </div>
         <div class="slider-inner mt-5">
           <div id="owl-demo" class="owl-carousel owl-theme">
-            <div class="item">
-              <h2>Head of Customer Success</h2>
-              <div class="job-adddress">
-                <svg viewBox="0 0 27 34" fill="none">
-                  <path
-                    d="M13.3333 16.6667C14.25 16.6667 15.035 16.34 15.6883 15.6867C16.3406 15.0344 16.6667 14.25 16.6667 13.3333C16.6667 12.4167 16.3406 11.6317 15.6883 10.9783C15.035 10.3261 14.25 10 13.3333 10C12.4167 10 11.6322 10.3261 10.98 10.9783C10.3267 11.6317 10 12.4167 10 13.3333C10 14.25 10.3267 15.0344 10.98 15.6867C11.6322 16.34 12.4167 16.6667 13.3333 16.6667ZM13.3333 28.9167C16.7222 25.8056 19.2361 22.9789 20.875 20.4367C22.5139 17.8956 23.3333 15.6389 23.3333 13.6667C23.3333 10.6389 22.3678 8.15944 20.4367 6.22833C18.5067 4.29833 16.1389 3.33333 13.3333 3.33333C10.5278 3.33333 8.15944 4.29833 6.22833 6.22833C4.29833 8.15944 3.33333 10.6389 3.33333 13.6667C3.33333 15.6389 4.15278 17.8956 5.79167 20.4367C7.43056 22.9789 9.94444 25.8056 13.3333 28.9167ZM13.3333 33.3333C8.86111 29.5278 5.52111 25.9928 3.31333 22.7283C1.10444 19.465 0 16.4444 0 13.6667C0 9.5 1.34056 6.18056 4.02167 3.70833C6.70167 1.23611 9.80556 0 13.3333 0C16.8611 0 19.965 1.23611 22.645 3.70833C25.3261 6.18056 26.6667 9.5 26.6667 13.6667C26.6667 16.4444 25.5628 19.465 23.355 22.7283C21.1461 25.9928 17.8056 29.5278 13.3333 33.3333Z"
-                  ></path>
-                </svg>
-                <span>Gurgaon, Haryana, India</span>
-              </div>
-              <div class="job-tags">
-                <a href="">Full-time</a>
-              </div>
-              <div class="company-logo">
-                <img
-                  src="https://media.licdn.com/dms/image/C560BAQH-hihSBgMrRA/company-logo_100_100/0/1630558410851?e=2147483647&amp;v=beta&amp;t=CRrbAcEFrYz8Pp-z19e_0SfP7g9wo3w9jd-pMTz3k3A"
-                  alt="https://media.licdn.com/dms/image/C560BAQH-hihSBgMrRA/company-logo_100_100/0/1630558410851?e=2147483647&amp;v=beta&amp;t=CRrbAcEFrYz8Pp-z19e_0SfP7g9wo3w9jd-pMTz3k3A"
-                />
-                <span>Accel in India</span>
-              </div>
-            </div>
-
-            <div class="item">
-              <h2>PPC Marketing Manager</h2>
-              <div class="job-adddress">
-                <svg viewBox="0 0 27 34" fill="none">
-                  <path
-                    d="M13.3333 16.6667C14.25 16.6667 15.035 16.34 15.6883 15.6867C16.3406 15.0344 16.6667 14.25 16.6667 13.3333C16.6667 12.4167 16.3406 11.6317 15.6883 10.9783C15.035 10.3261 14.25 10 13.3333 10C12.4167 10 11.6322 10.3261 10.98 10.9783C10.3267 11.6317 10 12.4167 10 13.3333C10 14.25 10.3267 15.0344 10.98 15.6867C11.6322 16.34 12.4167 16.6667 13.3333 16.6667ZM13.3333 28.9167C16.7222 25.8056 19.2361 22.9789 20.875 20.4367C22.5139 17.8956 23.3333 15.6389 23.3333 13.6667C23.3333 10.6389 22.3678 8.15944 20.4367 6.22833C18.5067 4.29833 16.1389 3.33333 13.3333 3.33333C10.5278 3.33333 8.15944 4.29833 6.22833 6.22833C4.29833 8.15944 3.33333 10.6389 3.33333 13.6667C3.33333 15.6389 4.15278 17.8956 5.79167 20.4367C7.43056 22.9789 9.94444 25.8056 13.3333 28.9167ZM13.3333 33.3333C8.86111 29.5278 5.52111 25.9928 3.31333 22.7283C1.10444 19.465 0 16.4444 0 13.6667C0 9.5 1.34056 6.18056 4.02167 3.70833C6.70167 1.23611 9.80556 0 13.3333 0C16.8611 0 19.965 1.23611 22.645 3.70833C25.3261 6.18056 26.6667 9.5 26.6667 13.6667C26.6667 16.4444 25.5628 19.465 23.355 22.7283C21.1461 25.9928 17.8056 29.5278 13.3333 33.3333Z"
-                  ></path>
-                </svg>
-                <span>Gurugram, Haryana, India</span>
-              </div>
-              <div class="job-tags">
-                <a href="">Full-time</a>
-              </div>
-              <div class="company-logo">
-                <img
-                  src="https://media.licdn.com/dms/image/C4D0BAQEr1wXBjVj-iw/company-logo_100_100/0/1601536443553?e=2147483647&amp;v=beta&amp;t=iinVYCfBq67IyURRJfzhmRPh1ObFCdFCqjgJwy9oAxU"
-                  alt="https://media.licdn.com/dms/image/C4D0BAQEr1wXBjVj-iw/company-logo_100_100/0/1601536443553?e=2147483647&amp;v=beta&amp;t=iinVYCfBq67IyURRJfzhmRPh1ObFCdFCqjgJwy9oAxU"
-                />
-                <span>Razor Group</span>
-              </div>
-            </div>
-
-            <div class="item">
-              <h2>Finance Process Lead - US Payroll</h2>
-              <div class="job-adddress">
-                <svg viewBox="0 0 27 34" fill="none">
-                  <path
-                    d="M13.3333 16.6667C14.25 16.6667 15.035 16.34 15.6883 15.6867C16.3406 15.0344 16.6667 14.25 16.6667 13.3333C16.6667 12.4167 16.3406 11.6317 15.6883 10.9783C15.035 10.3261 14.25 10 13.3333 10C12.4167 10 11.6322 10.3261 10.98 10.9783C10.3267 11.6317 10 12.4167 10 13.3333C10 14.25 10.3267 15.0344 10.98 15.6867C11.6322 16.34 12.4167 16.6667 13.3333 16.6667ZM13.3333 28.9167C16.7222 25.8056 19.2361 22.9789 20.875 20.4367C22.5139 17.8956 23.3333 15.6389 23.3333 13.6667C23.3333 10.6389 22.3678 8.15944 20.4367 6.22833C18.5067 4.29833 16.1389 3.33333 13.3333 3.33333C10.5278 3.33333 8.15944 4.29833 6.22833 6.22833C4.29833 8.15944 3.33333 10.6389 3.33333 13.6667C3.33333 15.6389 4.15278 17.8956 5.79167 20.4367C7.43056 22.9789 9.94444 25.8056 13.3333 28.9167ZM13.3333 33.3333C8.86111 29.5278 5.52111 25.9928 3.31333 22.7283C1.10444 19.465 0 16.4444 0 13.6667C0 9.5 1.34056 6.18056 4.02167 3.70833C6.70167 1.23611 9.80556 0 13.3333 0C16.8611 0 19.965 1.23611 22.645 3.70833C25.3261 6.18056 26.6667 9.5 26.6667 13.6667C26.6667 16.4444 25.5628 19.465 23.355 22.7283C21.1461 25.9928 17.8056 29.5278 13.3333 33.3333Z"
-                  ></path>
-                </svg>
-                <span>Gurugram, Haryana, India</span>
-              </div>
-              <div class="job-tags">
-                <a href="">Full-time</a>
-              </div>
-              <div class="company-logo">
-                <img
-                  src="https://media.licdn.com/dms/image/D560BAQFF2RyLy1gTkA/company-logo_100_100/0/1685619133447?e=2147483647&amp;v=beta&amp;t=XmGRO-EhWiUzr1knQglzNZcxw5bA5dCf1P47FweT6qA"
-                  alt="https://media.licdn.com/dms/image/D560BAQFF2RyLy1gTkA/company-logo_100_100/0/1685619133447?e=2147483647&amp;v=beta&amp;t=XmGRO-EhWiUzr1knQglzNZcxw5bA5dCf1P47FweT6qA"
-                />
-                <span>McKinsey &amp; Company</span>
-              </div>
-            </div>
-
-            <div class="item">
-              <h2>Finance Process Lead - US Payroll</h2>
-              <div class="job-adddress">
-                <svg viewBox="0 0 27 34" fill="none">
-                  <path
-                    d="M13.3333 16.6667C14.25 16.6667 15.035 16.34 15.6883 15.6867C16.3406 15.0344 16.6667 14.25 16.6667 13.3333C16.6667 12.4167 16.3406 11.6317 15.6883 10.9783C15.035 10.3261 14.25 10 13.3333 10C12.4167 10 11.6322 10.3261 10.98 10.9783C10.3267 11.6317 10 12.4167 10 13.3333C10 14.25 10.3267 15.0344 10.98 15.6867C11.6322 16.34 12.4167 16.6667 13.3333 16.6667ZM13.3333 28.9167C16.7222 25.8056 19.2361 22.9789 20.875 20.4367C22.5139 17.8956 23.3333 15.6389 23.3333 13.6667C23.3333 10.6389 22.3678 8.15944 20.4367 6.22833C18.5067 4.29833 16.1389 3.33333 13.3333 3.33333C10.5278 3.33333 8.15944 4.29833 6.22833 6.22833C4.29833 8.15944 3.33333 10.6389 3.33333 13.6667C3.33333 15.6389 4.15278 17.8956 5.79167 20.4367C7.43056 22.9789 9.94444 25.8056 13.3333 28.9167ZM13.3333 33.3333C8.86111 29.5278 5.52111 25.9928 3.31333 22.7283C1.10444 19.465 0 16.4444 0 13.6667C0 9.5 1.34056 6.18056 4.02167 3.70833C6.70167 1.23611 9.80556 0 13.3333 0C16.8611 0 19.965 1.23611 22.645 3.70833C25.3261 6.18056 26.6667 9.5 26.6667 13.6667C26.6667 16.4444 25.5628 19.465 23.355 22.7283C21.1461 25.9928 17.8056 29.5278 13.3333 33.3333Z"
-                  ></path>
-                </svg>
-                <span>Gurugram, Haryana, India</span>
-              </div>
-              <div class="job-tags">
-                <a href="">Full-time</a>
-              </div>
-              <div class="company-logo">
-                <img
-                  src="https://media.licdn.com/dms/image/D560BAQFF2RyLy1gTkA/company-logo_100_100/0/1685619133447?e=2147483647&amp;v=beta&amp;t=XmGRO-EhWiUzr1knQglzNZcxw5bA5dCf1P47FweT6qA"
-                  alt="https://media.licdn.com/dms/image/D560BAQFF2RyLy1gTkA/company-logo_100_100/0/1685619133447?e=2147483647&amp;v=beta&amp;t=XmGRO-EhWiUzr1knQglzNZcxw5bA5dCf1P47FweT6qA"
-                />
-                <span>McKinsey &amp; Company</span>
-              </div>
-            </div>
+            <Carousel autoplay :perPage="3" loop navigationEnabled v-model="currentSlide" :scrollPerPage="false">
+              <Slide v-for="job in jobs" :key="job.id">
+                <div class="item">
+                  <h2>{{ job?.title || "Title" }}</h2>
+                  <div class="job-adddress">
+                    <svg viewBox="0 0 27 34" fill="none">
+                      <path
+                        d="M13.3333 16.6667C14.25 16.6667 15.035 16.34 15.6883 15.6867C16.3406 15.0344 16.6667 14.25 16.6667 13.3333C16.6667 12.4167 16.3406 11.6317 15.6883 10.9783C15.035 10.3261 14.25 10 13.3333 10C12.4167 10 11.6322 10.3261 10.98 10.9783C10.3267 11.6317 10 12.4167 10 13.3333C10 14.25 10.3267 15.0344 10.98 15.6867C11.6322 16.34 12.4167 16.6667 13.3333 16.6667ZM13.3333 28.9167C16.7222 25.8056 19.2361 22.9789 20.875 20.4367C22.5139 17.8956 23.3333 15.6389 23.3333 13.6667C23.3333 10.6389 22.3678 8.15944 20.4367 6.22833C18.5067 4.29833 16.1389 3.33333 13.3333 3.33333C10.5278 3.33333 8.15944 4.29833 6.22833 6.22833C4.29833 8.15944 3.33333 10.6389 3.33333 13.6667C3.33333 15.6389 4.15278 17.8956 5.79167 20.4367C7.43056 22.9789 9.94444 25.8056 13.3333 28.9167ZM13.3333 33.3333C8.86111 29.5278 5.52111 25.9928 3.31333 22.7283C1.10444 19.465 0 16.4444 0 13.6667C0 9.5 1.34056 6.18056 4.02167 3.70833C6.70167 1.23611 9.80556 0 13.3333 0C16.8611 0 19.965 1.23611 22.645 3.70833C25.3261 6.18056 26.6667 9.5 26.6667 13.6667C26.6667 16.4444 25.5628 19.465 23.355 22.7283C21.1461 25.9928 17.8056 29.5278 13.3333 33.3333Z"
+                      ></path>
+                    </svg>
+                    <span>{{ job?.location || "Location" }}</span>
+                  </div>
+                  <div class="job-tags">
+                    <a href="">{{ job?.contract_type1 || "Contract" }}</a>
+                  </div>
+                  <div class="company-logo">
+                    <img :src="job?.logo" :alt="job?.company" />
+                    <span>{{ job?.company || "Company" }}</span>
+                  </div>
+                </div>
+              </Slide>
+            </Carousel>
           </div>
         </div>
       </div>
@@ -197,11 +132,7 @@
             </div>
           </div>
           <div class="col-md-6 text-center">
-            <img
-              class="img-work"
-              src="../assets/img/work-img.png"
-              alt=""
-            />
+            <img class="img-work" src="../assets/img/work-img.png" alt="" />
           </div>
         </div>
       </div>
@@ -228,7 +159,40 @@
 </template>
 
 <script>
-export default {};
+import { Carousel, Slide } from "vue-carousel";
+
+export default {
+  components: {
+    Carousel,
+    Slide,
+  },
+  data() {
+    return {
+      currentSlide: 0,
+    };
+  },
+  mounted() {
+    this.$store.dispatch("loadJobs", { page: 1 });
+  },
+  computed: {
+    jobs() {
+      const allJobs = this.$store.getters.getJobs;
+      if (Array.isArray(allJobs)) {
+        return allJobs.slice(0, 5);
+      }
+      return [];
+    },
+  },
+  methods: {
+    nextSlide() {
+      this.currentSlide = (this.currentSlide + 1) % this.jobs.length;
+    },
+    prevSlide() {
+      this.currentSlide =
+        (this.currentSlide - 1 + this.jobs.length) % this.jobs.length;
+    },
+  },
+};
 </script>
 
 <style scoped>
