@@ -252,7 +252,7 @@ function prepareEducation(educationArr) {
   return educationArr.flatMap((education, index) => [
     [`jobSeekerEducation[${index}].institution`, education.institution],
     [`jobSeekerEducation[${index}].qualification`, education.qualification],
-    // [`jobSeekerEducation[${index}].degree`, education.degree],
+    [`jobSeekerEducation[${index}].degree`, education.degree],
     [`jobSeekerEducation[${index}].start_date`, education.start_date],
     [`jobSeekerEducation[${index}].graduated`, education.graduated],
     [`jobSeekerEducation[${index}].major_subject`, education.major_subject],
