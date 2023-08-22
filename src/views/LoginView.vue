@@ -118,8 +118,9 @@ export default {
           });
         })
         .catch((err) => {
+          console.log(err.name );
           this.error =
-            err?.response?.data?.message || "Something went wrong while login";
+            err?.code== "ERR_BAD_REQUEST"? "No user Found with the Given Credentials": "Something went wrong while login";
         });
     },
     handleReset() {

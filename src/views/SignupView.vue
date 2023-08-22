@@ -129,12 +129,17 @@ export default {
           password: this.password,
         })
         .then(() => {
-          this.$router.push("/activate");
+          this.$router.push("/login");
         })
         .catch((error) => {
+          const responseData = error.response.data;
+          let errorString = "";
+          for (const key in responseData) {
+            errorString += `${key}: ${responseData[key][0]}\n`;
+          }
           this.error =
             error?.response?.data?.error ||
-            "There was an error during sign up. Try Again!";
+            errorString;
         });
     },
   },
