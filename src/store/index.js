@@ -38,7 +38,8 @@ export default new Vuex.Store({
       marital_status: null,
     },
     updateProfileErrors: null,
-    jobsCount: null
+    jobsCount: null,
+    urlOptionFilters: [],
   },
   getters: {
     getJobs(state) {
@@ -67,7 +68,10 @@ export default new Vuex.Store({
     },
     jobs_count(state) {
       return state.jobsCount;
-    }
+    },
+    getURLFilters(state) {
+      return state.urlOptionFilters;
+    },
   },
   mutations: {
     setJobs(state, jobs) {
@@ -102,6 +106,9 @@ export default new Vuex.Store({
     },
     setUpdateProfileErrors(state, updateProfileErrors) {
       state.updateProfileErrors = updateProfileErrors;
+    },
+    setURLFilters(state, urlOptionFilters) {
+      state.urlOptionFilters = urlOptionFilters;
     },
   },
 
@@ -232,6 +239,14 @@ export default new Vuex.Store({
       commit("setToken", { access: null, refresh: null });
       commit("setUser", { user: null });
       localStorage.clear();
+    },
+    async getURLFilters({ commit }) {
+      try {
+        const response = await axios.get(`${API_URL}/jobs/filtertags/`);
+        commit("setURLFilters", response.data);
+      } catch (e) {
+        console.log(e);
+      }
     },
   },
 

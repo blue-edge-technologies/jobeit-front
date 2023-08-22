@@ -77,7 +77,13 @@
     </div>
     <b-modal id="modal-1" title="Reset Password" @ok="handleReset">
       <div class="field-colume input-field">
-        <input v-model="email" type="email" placeholder="Email" name="email" class = "form-control"/>
+        <input
+          v-model="email"
+          type="email"
+          placeholder="Email"
+          name="email"
+          class="form-control"
+        />
       </div>
       <template #modal-footer="{ ok, hide }">
         <b-button size="sm" variant="outline-secondary" @click="hide('forget')">
@@ -123,6 +129,11 @@ export default {
         })
         .then(() => {
           alert("Please check your email for reset password link");
+        })
+        .catch((err) => {
+          this.error =
+            err?.response?.data?.message ||
+            "Something went wrong while reset, maybe email is not registered";
         });
     },
   },

@@ -32,10 +32,17 @@
                 <svg width="20" height="20" viewBox="0 0 34 32" fill="none">
                   <path
                     d="M20.333 6.93473V3.6014H13.6663V6.93473H20.333ZM3.66634 11.9347V26.9347C3.66634 27.8514 4.41634 28.6014 5.33301 28.6014H28.6663C29.583 28.6014 30.333 27.8514 30.333 26.9347V11.9347C30.333 11.0181 29.583 10.2681 28.6663 10.2681H5.33301C4.41634 10.2681 3.66634 11.0181 3.66634 11.9347ZM30.333 6.93473C32.183 6.93473 33.6663 8.41807 33.6663 10.2681V28.6014C33.6663 30.4514 32.183 31.9347 30.333 31.9347H3.66634C1.81634 31.9347 0.333008 30.4514 0.333008 28.6014L0.349674 10.2681C0.349674 8.41807 1.81634 6.93473 3.66634 6.93473H10.333V3.6014C10.333 1.7514 11.8163 0.268066 13.6663 0.268066H20.333C22.183 0.268066 23.6663 1.7514 23.6663 3.6014V6.93473H30.333Z"
-                    fill="#0146B1" />
+                    fill="#0146B1"
+                  />
                 </svg>
-                <input type="text" name="Title" class="filter-job-input-box" placeholder="Search Job Title"
-                  id="id_title" v-model="filters.title" />
+                <input
+                  type="text"
+                  name="Title"
+                  class="filter-job-input-box"
+                  placeholder="Search Job Title"
+                  id="id_title"
+                  v-model="filters.title"
+                />
               </div>
 
               <!-- <div class="search-fields">
@@ -51,35 +58,61 @@
                 <svg width="20" height="20" viewBox="0 0 40 40" fill="none">
                   <path
                     d="M20 0C8.96 0 0 8.96 0 20C0 31.04 8.96 40 20 40C31.04 40 40 31.04 40 20C40 8.96 31.04 0 20 0ZM20 36.8C11.2 36.8 4.8 30.4 4.8 21.6C4.8 12.8 11.2 6.4 20 6.4C28.8 6.4 35.2 12.8 35.2 21.6C35.2 30.4 28.8 36.8 20 36.8ZM20 11.2C14.08 11.2 9.6 15.68 9.6 21.6C9.6 27.52 14.08 32 20 32C25.92 32 30.4 27.52 30.4 21.6C30.4 15.68 25.92 11.2 20 11.2ZM20 28.8C16.64 28.8 14.4 26.56 14.4 23.2C14.4 19.84 16.64 17.6 20 17.6C23.36 17.6 25.6 19.84 25.6 23.2C25.6 26.56 23.36 28.8 20 28.8Z"
-                    fill="#0146B1"></path>
+                    fill="#0146B1"
+                  ></path>
                 </svg>
-                <input type="text" name="company" class="filter-job-input-box" placeholder="Filter by Company"
-                  id="id_company" v-model="filters.company" />
+                <input
+                  type="text"
+                  name="company"
+                  class="filter-job-input-box"
+                  placeholder="Filter by Company"
+                  id="id_company"
+                  v-model="filters.company"
+                />
               </div>
 
               <div class="search-fields">
                 <svg width="20" height="20" viewBox="0 0 40 50" fill="none">
                   <path
                     d="M20 25C21.375 25 22.5525 24.51 23.5325 23.53C24.5108 22.5517 25 21.375 25 20C25 18.625 24.5108 17.4475 23.5325 16.4675C22.5525 15.4892 21.375 15 20 15C18.625 15 17.4483 15.4892 16.47 16.4675C15.49 17.4475 15 18.625 15 20C15 21.375 15.49 22.5517 16.47 23.53C17.4483 24.51 18.625 25 20 25ZM20 43.375C25.0833 38.7083 28.8542 34.4683 31.3125 30.655C33.7708 26.8433 35 23.4583 35 20.5C35 15.9583 33.5517 12.2392 30.655 9.3425C27.76 6.4475 24.2083 5 20 5C15.7917 5 12.2392 6.4475 9.3425 9.3425C6.4475 12.2392 5 15.9583 5 20.5C5 23.4583 6.22917 26.8433 8.6875 30.655C11.1458 34.4683 14.9167 38.7083 20 43.375ZM20 50C13.2917 44.2917 8.28167 38.9892 4.97 34.0925C1.65667 29.1975 0 24.6667 0 20.5C0 14.25 2.01083 9.27083 6.0325 5.5625C10.0525 1.85417 14.7083 0 20 0C25.2917 0 29.9475 1.85417 33.9675 5.5625C37.9892 9.27083 40 14.25 40 20.5C40 24.6667 38.3442 29.1975 35.0325 34.0925C31.7192 38.9892 26.7083 44.2917 20 50Z"
-                    fill="#0146B1"></path>
+                    fill="#0146B1"
+                  ></path>
                 </svg>
-                <input type="text" name="location" class="filter-job-input-box" placeholder="Location" id="id_location"
-                  v-model="filters.location" />
+                <input
+                  type="text"
+                  name="location"
+                  class="filter-job-input-box"
+                  placeholder="Location"
+                  id="id_location"
+                  v-model="filters.location"
+                />
               </div>
               <!-- category -->
               <div class="search-fields">
                 <!-- gearsvg -->
-                
-                <input type="text" name="category" class="filter-job-input-box" placeholder="Category" id="id_category"
-                  v-model="filters.category" />
-              </div>
 
+                <input
+                  type="text"
+                  name="category"
+                  class="filter-job-input-box"
+                  placeholder="Category"
+                  id="id_category"
+                  v-model="filters.category"
+                />
+              </div>
 
               <div class="search-fields" style="padding: inherit">
                 <div class="filter">
                   <div class="custom-input experience_level_min">
-                    <input type="number" name="experience_level_min" class="filter-job-input-box" placeholder="Experience Min"
-                      id="id_experience_min" v-model="filters.experience_level_min" min="0" />
+                    <input
+                      type="number"
+                      name="experience_level_min"
+                      class="filter-job-input-box"
+                      placeholder="Experience Min"
+                      id="id_experience_min"
+                      v-model="filters.experience_level_min"
+                      min="0"
+                    />
                   </div>
                 </div>
               </div>
@@ -87,8 +120,15 @@
               <div class="search-fields" style="padding: inherit">
                 <div class="filter">
                   <div class="custom-input experience_level_max">
-                    <input type="number" name="experience_level_max" class="filter-job-input-box" placeholder="Experience Max"
-                      id="id_experience_max"  v-model="filters.experience_level_max" max="50" />
+                    <input
+                      type="number"
+                      name="experience_level_max"
+                      class="filter-job-input-box"
+                      placeholder="Experience Max"
+                      id="id_experience_max"
+                      v-model="filters.experience_level_max"
+                      max="50"
+                    />
                   </div>
                 </div>
               </div>
@@ -129,15 +169,19 @@
                 </div>
               </div> -->
 
-              
-
               <div class="search-fields">
                 <svg width="20" height="20" viewBox="0 0 30 35" fill="none">
                   <path
                     d="M15 20.8335C14.5278 20.8335 14.1317 20.6735 13.8117 20.3535C13.4917 20.0335 13.3322 19.6379 13.3333 19.1668C13.3333 18.6946 13.4933 18.2985 13.8133 17.9785C14.1333 17.6585 14.5289 17.4991 15 17.5002C15.4722 17.5002 15.8683 17.6602 16.1883 17.9802C16.5083 18.3002 16.6678 18.6957 16.6667 19.1668C16.6667 19.6391 16.5067 20.0352 16.1867 20.3552C15.8667 20.6752 15.4711 20.8346 15 20.8335ZM8.33334 20.8335C7.86111 20.8335 7.465 20.6735 7.145 20.3535C6.825 20.0335 6.66556 19.6379 6.66667 19.1668C6.66667 18.6946 6.82667 18.2985 7.14667 17.9785C7.46667 17.6585 7.86223 17.4991 8.33334 17.5002C8.80556 17.5002 9.20167 17.6602 9.52167 17.9802C9.84167 18.3002 10.0011 18.6957 10 19.1668C10 19.6391 9.84 20.0352 9.52 20.3552C9.2 20.6752 8.80445 20.8346 8.33334 20.8335ZM21.6667 20.8335C21.1944 20.8335 20.7983 20.6735 20.4783 20.3535C20.1583 20.0335 19.9989 19.6379 20 19.1668C20 18.6946 20.16 18.2985 20.48 17.9785C20.8 17.6585 21.1956 17.4991 21.6667 17.5002C22.1389 17.5002 22.535 17.6602 22.855 17.9802C23.175 18.3002 23.3344 18.6957 23.3333 19.1668C23.3333 19.6391 23.1733 20.0352 22.8533 20.3552C22.5333 20.6752 22.1378 20.8346 21.6667 20.8335ZM15 27.5002C14.5278 27.5002 14.1317 27.3402 13.8117 27.0202C13.4917 26.7002 13.3322 26.3046 13.3333 25.8335C13.3333 25.3613 13.4933 24.9652 13.8133 24.6452C14.1333 24.3252 14.5289 24.1657 15 24.1668C15.4722 24.1668 15.8683 24.3268 16.1883 24.6468C16.5083 24.9668 16.6678 25.3624 16.6667 25.8335C16.6667 26.3057 16.5067 26.7018 16.1867 27.0218C15.8667 27.3418 15.4711 27.5013 15 27.5002ZM8.33334 27.5002C7.86111 27.5002 7.465 27.3402 7.145 27.0202C6.825 26.7002 6.66556 26.3046 6.66667 25.8335C6.66667 25.3613 6.82667 24.9652 7.14667 24.6452C7.46667 24.3252 7.86223 24.1657 8.33334 24.1668C8.80556 24.1668 9.20167 24.3268 9.52167 24.6468C9.84167 24.9668 10.0011 25.3624 10 25.8335C10 26.3057 9.84 26.7018 9.52 27.0218C9.2 27.3418 8.80445 27.5013 8.33334 27.5002ZM21.6667 27.5002C21.1944 27.5002 20.7983 27.3402 20.4783 27.0202C20.1583 26.7002 19.9989 26.3046 20 25.8335C20 25.3613 20.16 24.9652 20.48 24.6452C20.8 24.3252 21.1956 24.1657 21.6667 24.1668C22.1389 24.1668 22.535 24.3268 22.855 24.6468C23.175 24.9668 23.3344 25.3624 23.3333 25.8335C23.3333 26.3057 23.1733 26.7018 22.8533 27.0218C22.5333 27.3418 22.1378 27.5013 21.6667 27.5002ZM3.33334 34.1668C2.41667 34.1668 1.63167 33.8402 0.978336 33.1868C0.325003 32.5335 -0.00110828 31.7491 2.82966e-06 30.8335V7.50017C2.82966e-06 6.5835 0.32667 5.7985 0.980003 5.14517C1.63334 4.49184 2.41778 4.16572 3.33334 4.16684H5V2.50017C5 2.02795 5.16 1.63184 5.48 1.31184C5.8 0.991835 6.19556 0.832391 6.66667 0.833502C7.13889 0.833502 7.535 0.993502 7.855 1.3135C8.175 1.6335 8.33445 2.02906 8.33334 2.50017V4.16684H21.6667V2.50017C21.6667 2.02795 21.8267 1.63184 22.1467 1.31184C22.4667 0.991835 22.8622 0.832391 23.3333 0.833502C23.8056 0.833502 24.2017 0.993502 24.5217 1.3135C24.8417 1.6335 25.0011 2.02906 25 2.50017V4.16684H26.6667C27.5833 4.16684 28.3683 4.4935 29.0217 5.14684C29.675 5.80017 30.0011 6.58461 30 7.50017V30.8335C30 31.7502 29.6733 32.5352 29.02 33.1885C28.3667 33.8418 27.5822 34.1679 26.6667 34.1668H3.33334ZM3.33334 30.8335H26.6667V14.1668H3.33334V30.8335ZM3.33334 10.8335H26.6667V7.50017H3.33334V10.8335Z"
-                    fill="#0146B1" />
+                    fill="#0146B1"
+                  />
                 </svg>
-                <select name="date_posted" class="filter-job-input-box" id="id_date_posted" v-model="filters.date_posted">
+                <select
+                  name="date_posted"
+                  class="filter-job-input-box"
+                  id="id_date_posted"
+                  v-model="filters.date_posted"
+                >
                   <option value="" selected>Date Posted</option>
 
                   <option value="Last 24 Hours">Last 24 Hours</option>
@@ -156,17 +200,43 @@
                 </select>
                 <!-- <input type="text" placeholder="Date Posted" class="date-post"> -->
               </div>
-             
             </div>
-
+            <br />
+            <hr style="width: 45%; display: inline-block" />
+            <span style="font-weight: lighter">or</span>
+            <hr style="width: 45%; display: inline-block" />
+            <br /><br />
+            <div class="filter2">
+              <div class="custom-input search-fields">
+                <select
+                  name="override_filters"
+                  class="filter-job-input-box"
+                  id="id_override_filters"
+                  v-model="selectedOverrideFilter"
+                >
+                  <option value="" selected>Custom Filters</option>
+                  <option
+                    v-for="filter in overrideFilters"
+                    :key="filter.id"
+                    :value="filter.search_url"
+                  >
+                    {{ filter.tag_name }}
+                  </option>
+                </select>
+              </div>
+            </div>
           </div>
           <br />
           <br />
-          <button class="common-btn common-btn-block filter-btn" @click="applyFilters">
+          <button
+            class="common-btn common-btn-block filter-btn"
+            @click="applyFilters"
+          >
             <svg width="25" height="25" viewBox="0 0 30 31" fill="none">
               <path
                 d="M27.6667 30.5L17.1667 20C16.3333 20.6667 15.375 21.1944 14.2917 21.5833C13.2083 21.9722 12.0556 22.1667 10.8333 22.1667C7.80556 22.1667 5.24333 21.1183 3.14667 19.0217C1.04889 16.9239 0 14.3611 0 11.3333C0 8.30556 1.04889 5.74278 3.14667 3.645C5.24333 1.54833 7.80556 0.5 10.8333 0.5C13.8611 0.5 16.4239 1.54833 18.5217 3.645C20.6183 5.74278 21.6667 8.30556 21.6667 11.3333C21.6667 12.5556 21.4722 13.7083 21.0833 14.7917C20.6944 15.875 20.1667 16.8333 19.5 17.6667L30 28.1667L27.6667 30.5ZM10.8333 18.8333C12.9167 18.8333 14.6878 18.1044 16.1467 16.6467C17.6044 15.1878 18.3333 13.4167 18.3333 11.3333C18.3333 9.25 17.6044 7.47889 16.1467 6.02C14.6878 4.56222 12.9167 3.83333 10.8333 3.83333C8.75 3.83333 6.97889 4.56222 5.52 6.02C4.06222 7.47889 3.33333 9.25 3.33333 11.3333C3.33333 13.4167 4.06222 15.1878 5.52 16.6467C6.97889 18.1044 8.75 18.8333 10.8333 18.8333Z"
-                fill="#0146B1" />
+                fill="#0146B1"
+              />
             </svg>
             <span>Search & Filter</span>
           </button>
@@ -180,14 +250,25 @@
     <section class="related-job-section">
       <template v-if="total_count">
         <div class="container">
-        <h2 class="section-heading">
-            Found <span>{{this.$store.getters.jobs_count}}</span> jobs
+          <h2 class="section-heading">
+            Found <span>{{ this.$store.getters.jobs_count }}</span> jobs
           </h2>
-        <job-item-card v-for="job in jobs" :job="job" :key="job.id"></job-item-card>
+          <job-item-card
+            v-for="job in jobs"
+            :job="job"
+            :key="job.id"
+          ></job-item-card>
 
-        <b-pagination :total-rows="total_count" :per-page="20" v-model="currentPage" @change="clickHandler" align="fill"
-          pills size="lg"></b-pagination>
-      </div>
+          <b-pagination
+            :total-rows="total_count"
+            :per-page="20"
+            v-model="currentPage"
+            @change="clickHandler"
+            align="fill"
+            pills
+            size="lg"
+          ></b-pagination>
+        </div>
       </template>
       <template v-else>
         <div class="container">
@@ -241,7 +322,7 @@ function getAPIFilters(query) {
     company__icontains: query.company || undefined,
     search: query.keywords || undefined,
     location__icontains: query.location || undefined,
-    category__icontains: query.category || undefined, 
+    category__icontains: query.category || undefined,
     minimum_experience__gte: query.experience_level_min || undefined,
     minimum_experience__lte: query.experience_level_max || undefined,
     salary__gte: query.salary_min || undefined,
@@ -264,17 +345,20 @@ export default {
       }
       return null;
     },
+    overrideFilters: function () {
+      return this.$store.getters.getURLFilters || {};
+    },
   },
   data() {
     return {
       currentPage: 1,
       filters: {
-        title:"",
-        company:"",
+        title: "",
+        company: "",
         keywords: "",
         location: "",
         category: "",
-        
+
         experience_level_min: null,
         experience_level_max: null,
         salary_min: null,
@@ -282,11 +366,13 @@ export default {
 
         rating_min: null,
         rating_max: null,
-        date_posted:"",
+        date_posted: "",
         date_posted_min: "",
         date_posted_max: "",
       },
       error: "",
+      selectedOverrideFilter: "",
+      currentQueryString: "",
     };
   },
   mounted() {
@@ -306,26 +392,47 @@ export default {
     this.filters.rating_max = this.$route.query.rating_max || null;
     this.filters.date_posted = this.$route.query.date_posted || "";
     this.applyFilters();
+    this.$store.dispatch("getURLFilters");
   },
   methods: {
     clickHandler: function (page) {
-      const query = { ...this.$route.query, page };
+      const query = QueryString.parse(this.currentQueryString);
+      query.page = page;
       const queryString = QueryString.stringify(query);
       history.pushState(null, null, `?${queryString}`);
+      this.currentPage = page;
       this.$store.dispatch("loadJobs", { page }).catch((err) => {
         this.error = err || "Error loading jobs";
       });
       window.scrollTo(0, 0);
     },
-    applyFilters: function () { 
+    applyFilters: function () {
       const query = { ...this.$route.query, ...this.filters, page: 1 };
       const queryString = QueryString.stringify(query);
       history.pushState(null, null, `?${queryString}`);
-      console.log(getAPIFilters(this.filters))
+      console.log(getAPIFilters(this.filters));
+      this.currentQueryString = queryString;
       this.$store
         .dispatch("loadJobs", {
           page: 1,
           filters: getAPIFilters(this.filters),
+        })
+        .catch((err) => {
+          this.error = err || "Error loading jobs";
+        });
+    },
+  },
+  watch: {
+    selectedOverrideFilter: function (val) {
+      const overrideFilters = QueryString.parse(val.slice(1));
+      const query = { ...overrideFilters, page: 1 };
+      const queryString = QueryString.stringify(query);
+      history.pushState(null, null, `?${queryString}`);
+      this.currentQueryString = queryString;
+      this.$store
+        .dispatch("loadJobs", {
+          page: 1,
+          filters: getAPIFilters(overrideFilters),
         })
         .catch((err) => {
           this.error = err || "Error loading jobs";
@@ -371,6 +478,18 @@ ol,
 ul {
   margin-bottom: 0;
   padding-left: 0;
+}
+
+#id_override_filters {
+  width: 100%;
+}
+.wider-input {
+  width: 40%;
+}
+
+.filter2 {
+  display: flex;
+  justify-content: center;
 }
 
 a {
@@ -710,12 +829,12 @@ header {
   align-content: center;
 }
 
-.hero-row>*:nth-child(1) {
+.hero-row > *:nth-child(1) {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
 }
 
-.hero-row>*:nth-child(2) {
+.hero-row > *:nth-child(2) {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
 }
@@ -969,11 +1088,13 @@ footer {
 
 .related-job:hover {
   color: #fff;
-  background: -webkit-gradient(linear,
-      left top,
-      left bottom,
-      from(#0d57cb),
-      to(#0141a4));
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#0d57cb),
+    to(#0141a4)
+  );
   background: -o-linear-gradient(top, #0d57cb 0%, #0141a4 100%);
   background: linear-gradient(180deg, #0d57cb 0%, #0141a4 100%);
 }

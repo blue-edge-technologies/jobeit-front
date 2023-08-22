@@ -5,9 +5,12 @@ axios.interceptors.response.use(
   (error) => {
     try {
       if (error.response.status === 401) {
-        localStorage.removeItem("access");
-        localStorage.removeItem("refresh");
-        location.href = "/";
+        if (error.config.url.includes("auth/jwt/create")) {
+          return Promise.reject(error);
+        }
+        // localStorage.removeItem("access");
+        // localStorage.removeItem("refresh");
+        // location.href = "/";
       }
       return Promise.reject(error);
     } catch (err) {
