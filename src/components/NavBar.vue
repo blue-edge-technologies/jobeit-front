@@ -30,7 +30,7 @@
               >
                 <a class="profile-pic"
                   ><img
-                    src="https://django-jobwebsite.s3.amazonaws.com/default.jpg"
+                    :src="imageURL"
                     width="60"
                     alt="" /></a
                 ><span class="">Welcome, {{username}}</span>
@@ -76,10 +76,13 @@
 </template>
 
 <script>
+import { API_URL } from "@/config";
+
 export default {
   data() {
     return {
-      dropshow: false,      
+      dropshow: false,     
+      API_URL 
     };
   },
   methods: {
@@ -99,7 +102,14 @@ export default {
      return this.$store.getters.getUserName;
     
     },
+     profile() {
+      return this.$store.getters.getProfile;
+    },
+    imageURL() {
+      return `${this.API_URL}${this.profile?.image}`;
+    }
   },
+   
 };
 </script>
 
@@ -173,4 +183,18 @@ header {
   transition: 0.3s;
   text-decoration: none;
 }
+.header-right .profile-pic img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.header-right .profile-pic  {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
 </style>
