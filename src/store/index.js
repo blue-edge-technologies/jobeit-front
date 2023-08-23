@@ -189,10 +189,7 @@ export default new Vuex.Store({
         commit("setProfile", response.data);
       } catch (e) {
         if (
-          e.response.status === 400 &&
-          e.response.data.user.includes(
-            "Job Seeker with this user already exists."
-          )
+          e.response.status === 400
         ) {
           try {
             const response = await axios.patch(

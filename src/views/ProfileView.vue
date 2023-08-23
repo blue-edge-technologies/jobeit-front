@@ -30,7 +30,7 @@
         <div class="row culume-reverse-md align-items-center">
           <div class="col-sm-6 mt-5 align-self-start">
             <div class="profile-img">
-              <img src="https://django-jobwebsite.s3.amazonaws.com/default.jpg" alt="Tihitena" />
+              <img :src="profile?.image || '/media/default.png'" alt="Profile Image" />
               <h3 class="desc">{{ username }}</h3>
             </div>
           </div>

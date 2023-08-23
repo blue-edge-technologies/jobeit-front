@@ -24,23 +24,38 @@
           </template>
           <div class="col-md-6">
             <div class="input-field">
-              <label for="institution">Institution</label><input type="text" name="institution"
-                v-model="jobSeekerEducation.institution" class="form-control" id="id_institution" />
+              <label for="institution">Institution</label
+              ><input
+                type="text"
+                name="institution"
+                v-model="jobSeekerEducation.institution"
+                class="form-control"
+                id="id_institution"
+              />
             </div>
           </div>
           <div class="col-md-6">
             <div class="input-field">
-              <label for="qualification">Qualification</label><input type="text"
-                v-model="jobSeekerEducation.qualification" name="qualification" class="form-control"
-                id="id_qualification" />
+              <label for="qualification">Qualification</label
+              ><input
+                type="text"
+                v-model="jobSeekerEducation.qualification"
+                name="qualification"
+                class="form-control"
+                id="id_qualification"
+              />
             </div>
           </div>
           <div class="col-md-6">
-            
             <div class="input-field">
               <label for="degree">Degree</label>
               <!-- <input type="text" v-model="jobSeekerEducation.degree" name="degree" class="form-control" id="id_degree" /> -->
-              <select v-model="jobSeekerEducation.degree" name="degree" class="form-control-select" id="id_degree">
+              <select
+                v-model="jobSeekerEducation.degree"
+                name="degree"
+                class="form-control-select"
+                id="id_degree"
+              >
                 <option v-for="degree in DEGREE_OPTIONS" v-bind:key="degree">
                   {{ degree }}
                 </option>
@@ -49,28 +64,54 @@
           </div>
           <div class="col-md-6">
             <div class="input-field">
-              <label for="start_date">Start Date</label><input type="date" v-model="jobSeekerEducation.start_date"
-                name="start_date" class="form-control" id="id_start_date" />
+              <label for="start_date">Start Date</label
+              ><input
+                type="date"
+                v-model="jobSeekerEducation.start_date"
+                name="start_date"
+                class="form-control"
+                id="id_start_date"
+              />
             </div>
           </div>
           <div class="col-md-6">
             <div class="input-field">
-              <label for="graduated">Graduated</label><input type="date" v-model="jobSeekerEducation.graduated"
-                name="graduated" class="form-control" id="id_graduated" />
+              <label for="graduated">Graduated</label
+              ><input
+                type="date"
+                v-model="jobSeekerEducation.graduated"
+                name="graduated"
+                class="form-control"
+                id="id_graduated"
+              />
             </div>
           </div>
           <div class="col-md-6">
             <div class="input-field">
-              <label for="major_subject">Major Subject</label><input type="text"
-                v-model="jobSeekerEducation.major_subject" name="major_subject" class="form-control"
-                id="id_major_subject" />
+              <label for="major_subject">Major Subject</label
+              ><input
+                type="text"
+                v-model="jobSeekerEducation.major_subject"
+                name="major_subject"
+                class="form-control"
+                id="id_major_subject"
+              />
             </div>
           </div>
           <div class="col-md-6">
             <div class="input-field">
-              <label for="ethnicity">Ethnicity</label><select class="form-control-select" name="ethnicity"
-                id="id_ethnicity" v-model="ethnicity">
-                <option v-for="ethnicity in ETHNICITY_OPTIONS" :value="ethnicity" v-bind:key="ethnicity">
+              <label for="ethnicity">Ethnicity</label
+              ><select
+                class="form-control-select"
+                name="ethnicity"
+                id="id_ethnicity"
+                v-model="ethnicity"
+              >
+                <option
+                  v-for="ethnicity in ETHNICITY_OPTIONS"
+                  :value="ethnicity"
+                  v-bind:key="ethnicity"
+                >
                   {{ ethnicity }}
                 </option>
               </select>
@@ -78,8 +119,14 @@
           </div>
           <div class="col-md-6">
             <div class="input-field">
-              <label for="date_birth">Date Of Birth</label><input type="date" v-model="date_birth" name="date_birth"
-                class="form-control" id="id_date_birth" />
+              <label for="date_birth">Date Of Birth</label
+              ><input
+                type="date"
+                v-model="date_birth"
+                name="date_birth"
+                class="form-control"
+                id="id_date_birth"
+              />
             </div>
           </div>
           <div class="col-md-6">
@@ -92,8 +139,17 @@
                 class="form-control"
                 id="id_sex"
               /> -->
-              <select class="form-control-select" name="sex" id="id_sex" v-model="sex">
-                <option v-for="sex in SEX_OPTIONS" :value="sex" v-bind:key="sex">
+              <select
+                class="form-control-select"
+                name="sex"
+                id="id_sex"
+                v-model="sex"
+              >
+                <option
+                  v-for="sex in SEX_OPTIONS"
+                  :value="sex"
+                  v-bind:key="sex"
+                >
                   {{ sex }}
                 </option>
               </select>
@@ -109,8 +165,17 @@
                 class="form-control"
                 id="id_marital_status"
               /> -->
-              <select v-model="marital_status" class="form-control-select" name="marital_status" id="id_marital_status">
-                <option v-for="maritalStatus in MARITAL_STATUS_OPTIONS" :value="maritalStatus" v-bind:key="maritalStatus">
+              <select
+                v-model="marital_status"
+                class="form-control-select"
+                name="marital_status"
+                id="id_marital_status"
+              >
+                <option
+                  v-for="maritalStatus in MARITAL_STATUS_OPTIONS"
+                  :value="maritalStatus"
+                  v-bind:key="maritalStatus"
+                >
                   {{ maritalStatus }}
                 </option>
               </select>
@@ -118,34 +183,66 @@
           </div>
           <div class="col-md-6">
             <div class="input-field">
-              <label for="addressLine1">Address Line1</label><input type="text" v-model="addressLine1" name="addressLine1"
-                class="form-control" id="id_addressLine1" />
+              <label for="addressLine1">Address Line1</label
+              ><input
+                type="text"
+                v-model="addressLine1"
+                name="addressLine1"
+                class="form-control"
+                id="id_addressLine1"
+              />
             </div>
           </div>
           <div class="col-md-6">
             <div class="input-field">
-              <label for="addressLine2">Address Line2</label><input type="text" v-model="addressLine2" name="addressLine2"
-                class="form-control" id="id_addressLine2" />
+              <label for="addressLine2">Address Line2</label
+              ><input
+                type="text"
+                v-model="addressLine2"
+                name="addressLine2"
+                class="form-control"
+                id="id_addressLine2"
+              />
             </div>
           </div>
           <div class="col-md-6">
             <div class="input-field">
-              <label for="suburb">Suburb</label><input type="text" v-model="suburb" name="suburb" class="form-control"
-                id="id_suburb" />
+              <label for="suburb">Suburb</label
+              ><input
+                type="text"
+                v-model="suburb"
+                name="suburb"
+                class="form-control"
+                id="id_suburb"
+              />
             </div>
           </div>
           <div class="col-md-6">
             <div class="input-field">
-              <label for="city">City</label><input type="text" v-model="city" name="city" class="form-control"
-                id="id_city" />
+              <label for="city">City</label
+              ><input
+                type="text"
+                v-model="city"
+                name="city"
+                class="form-control"
+                id="id_city"
+              />
             </div>
           </div>
           <div class="col-md-6">
             <div class="input-field">
               <label for="province">Province</label>
 
-              <select class="form-control" name="province" id="id_province" v-model="province">
-                <option v-for="province in PROVINCE_OPTIONS" v-bind:key="province">
+              <select
+                class="form-control"
+                name="province"
+                id="id_province"
+                v-model="province"
+              >
+                <option
+                  v-for="province in PROVINCE_OPTIONS"
+                  v-bind:key="province"
+                >
                   {{ province }}
                 </option>
               </select>
@@ -153,36 +250,69 @@
           </div>
           <div class="col-md-6">
             <div class="input-field">
-              <label for="phoneNumber">Phone Number</label><input type="text" v-model="phoneNumber" name="phoneNumber"
-                class="form-control" id="id_phoneNumber" />
+              <label for="phoneNumber">Phone Number</label
+              ><input
+                type="text"
+                v-model="phoneNumber"
+                name="phoneNumber"
+                class="form-control"
+                id="id_phoneNumber"
+              />
             </div>
           </div>
           <div class="col-md-6">
             <div class="input-field">
-              <label for="cv">Cv</label><input type="file" name="cv" class="form-control-file" accept="application/pdf"
-                id="id_cv" @change="onCvChange" />
+              <label for="cv">Cv</label
+              ><input
+                type="file"
+                name="cv"
+                class="form-control-file"
+                accept="application/pdf"
+                id="id_cv"
+                @change="onCvChange"
+              />
             </div>
           </div>
           <div class="col-md-6">
             <div class="input-field">
-              <label for="image">Profile Picture</label><input type="file" name="image" class="form-control-file"
-                accept="image/*" id="id_image" @change="onImageChange" />
+              <label for="image">Profile Picture</label
+              ><input
+                type="file"
+                name="image"
+                class="form-control-file"
+                accept="image/*"
+                id="id_image"
+                @change="onImageChange"
+              />
             </div>
           </div>
           <div class="col-md-6">
             <div class="input-field">
-              <label for="cover_letter">Cover Letter</label><input type="file" name="cover_letter"
-                class="form-control-file" accept="application/pdf" id="id_cover_letter" @change="onCoverLetterChange" />
+              <label for="cover_letter">Cover Letter</label
+              ><input
+                type="file"
+                name="cover_letter"
+                class="form-control-file"
+                accept="application/pdf"
+                id="id_cover_letter"
+                @change="onCoverLetterChange"
+              />
             </div>
           </div>
         </div>
         <div class="col-md-12 text-end">
-          <button type="submit" class="common-btn common-btn-block" @click="updateProfile" :disabled="submitDisabled">
+          <button
+            type="submit"
+            class="common-btn common-btn-block"
+            @click="updateProfile"
+            :disabled="submitDisabled"
+          >
             <span>Update my profile</span>
             <svg viewBox="0 0 40 40" fill="none">
               <path
                 d="M23.8844 38.9238C23.3708 38.2063 23.1242 37.3393 23.1448 36.3229C23.167 35.3064 23.435 34.4395 23.9486 33.722L31.2038 23.5874H2.56822C1.84056 23.5874 1.23018 23.243 0.737079 22.5543C0.245693 21.8679 0 21.0164 0 20C0 18.9836 0.245693 18.1309 0.737079 17.4422C1.23018 16.7558 1.84056 16.4126 2.56822 16.4126H31.2038L23.8844 6.18834C23.3708 5.47085 23.114 4.61823 23.114 3.63049C23.114 2.64514 23.3708 1.79372 23.8844 1.07623C24.3981 0.358743 25.0085 0 25.7156 0C26.421 0 27.0305 0.358743 27.5441 1.07623L39.2937 17.4888C39.5506 17.8475 39.7329 18.2362 39.8408 18.6547C39.9469 19.0732 40 19.5217 40 20C40 20.4783 39.9469 20.9268 39.8408 21.3453C39.7329 21.7638 39.5506 22.1525 39.2937 22.5112L27.4799 39.0134C27.0091 39.6711 26.421 40 25.7156 40C25.0085 40 24.3981 39.6413 23.8844 38.9238Z"
-                fill="#0146B1"></path>
+                fill="#0146B1"
+              ></path>
             </svg>
           </button>
         </div>
@@ -197,16 +327,17 @@ import FooterSection from "@/components/FooterSection.vue";
 import NavBar from "@/components/NavBar.vue";
 
 const DEGREE_OPTIONS = Object.freeze({
-  'NQF 5 - Certificate': 'NQF 5 - Certificate',
-  'NQF 5 - Higher Certificate': 'NQF 5 - Higher Certificate',
-  'NQF 5 - First Diploma': 'NQF 5 - First Diploma',
-  'NQF 6 - Batchelors Degree': 'NQF 6 - Batchelors Degree',
-  'NQF 6 - Professional first degree postgraduate': 'NQF 6 - Professional first degree postgraduate',
-  'NQF 6 - General first degree': 'NQF 6 - General first degree',
-  'NQF 7 - Postgraduate Diploma': 'NQF 7 - Postgraduate Diploma',
-  'NQF 7 - Honours Degree': 'NQF 7 - Honours Degree',
-  'NQF 7 - Masters Degree': 'NQF 7 - Masters Degree',
-  'NQF 8 - Doctors Degree': 'NQF 8 - Doctors Degree'
+  "NQF 5 - Certificate": "NQF 5 - Certificate",
+  "NQF 5 - Higher Certificate": "NQF 5 - Higher Certificate",
+  "NQF 5 - First Diploma": "NQF 5 - First Diploma",
+  "NQF 6 - Batchelors Degree": "NQF 6 - Batchelors Degree",
+  "NQF 6 - Professional first degree postgraduate":
+    "NQF 6 - Professional first degree postgraduate",
+  "NQF 6 - General first degree": "NQF 6 - General first degree",
+  "NQF 7 - Postgraduate Diploma": "NQF 7 - Postgraduate Diploma",
+  "NQF 7 - Honours Degree": "NQF 7 - Honours Degree",
+  "NQF 7 - Masters Degree": "NQF 7 - Masters Degree",
+  "NQF 8 - Doctors Degree": "NQF 8 - Doctors Degree",
 });
 
 const PROVINCE_OPTIONS = Object.freeze({
@@ -273,9 +404,7 @@ export default {
         major_subject: "",
       },
 
-      ethnicity: "",
       date_birth: "",
-      sex: "",
       marital_status: "",
       addressLine1: "",
       addressLine2: "",
@@ -286,6 +415,8 @@ export default {
       cv: "",
       image: "",
       cover_letter: "",
+      ethnicity: "",
+      sex: "",
 
       error: "",
 
@@ -295,6 +426,31 @@ export default {
       SEX_OPTIONS,
       ETHNICITY_OPTIONS,
     };
+  },
+  
+  mounted() {
+    this.$store.dispatch("getJobseeker");
+  },
+
+  watch: {
+    profile() {
+      this.date_birth = this?.profile?.date_birth;
+      this.marital_status = this?.profile?.marital_status;
+      this.addressLine1 = this?.profile?.addressLine1;
+      this.addressLine2 = this?.profile?.addressLine2;
+      this.suburb = this?.profile?.suburb;
+      this.city = this?.profile?.city;
+      this.province = this?.profile?.province;
+      this.phoneNumber = this?.profile?.phoneNumber;
+      this.cv = this?.profile?.cv;
+      this.image = this?.profile?.image;
+      this.cover_letter = this?.profile?.cover_letter;
+      this.ethnicity = this?.profile?.ethnicity;
+      this.sex = this?.profile?.sex;
+      this.jobSeekerEducation = Array.isArray(this?.profile?.jobSeekerEducation)
+        ? this?.profile?.jobSeekerEducation[0]
+        : this?.profile?.jobSeekerEducation;
+    },
   },
 
   methods: {
@@ -365,6 +521,9 @@ export default {
       }
       return false;
     },
+    profile() {
+      return this.$store.getters.getProfile;
+    },
   },
 };
 </script>
@@ -430,7 +589,6 @@ input::placeholder,
 textarea::placeholder {
   color: #9a9dad;
 }
-
 
 /* header style */
 header {
@@ -750,12 +908,12 @@ header {
   align-content: center;
 }
 
-.hero-row>*:nth-child(1) {
+.hero-row > *:nth-child(1) {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
 }
 
-.hero-row>*:nth-child(2) {
+.hero-row > *:nth-child(2) {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
 }
@@ -1008,11 +1166,13 @@ footer {
 
 .related-job:hover {
   color: #fff;
-  background: -webkit-gradient(linear,
-      left top,
-      left bottom,
-      from(#0d57cb),
-      to(#0141a4));
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#0d57cb),
+    to(#0141a4)
+  );
   background: -o-linear-gradient(top, #0d57cb 0%, #0141a4 100%);
   background: linear-gradient(180deg, #0d57cb 0%, #0141a4 100%);
 }
@@ -1211,7 +1371,7 @@ footer {
 
 .input-field select::after {
   /* Set the asterisk (*) as the content */
-  content: '*';
+  content: "*";
   position: absolute;
   top: 50%;
   right: 10px;
@@ -1735,4 +1895,5 @@ footer {
   .bolg .common-btn {
     width: 10rem;
   }
-}</style>
+}
+</style>
