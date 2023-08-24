@@ -193,7 +193,7 @@ export default new Vuex.Store({
         ) {
           try {
             const response = await axios.patch(
-              `${API_URL}/jobseeker/me`,
+              `${API_URL}/jobseeker/me/`,
               formData,
               {
                 headers: {
