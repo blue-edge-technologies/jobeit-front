@@ -30,7 +30,8 @@
         <div class="row culume-reverse-md align-items-center">
           <div class="col-sm-6 mt-5 align-self-start">
             <div class="profile-img">
-              <img :src="profile?.image || '/media/default.png'" alt="Profile Image" />
+              
+              <img :src="imageURL" alt="Profile Image" />
               <h3 class="desc">{{ username }}</h3>
             </div>
           </div>
@@ -245,6 +246,9 @@ export default {
     user() {
       return this.$store.getters.getUser;
     },
+    imageURL() {
+      return `${this.API_URL}${this.profile?.image}`;
+    }
   },
   mounted() {
     this.$store.dispatch("getJobseeker").catch((err) => {
