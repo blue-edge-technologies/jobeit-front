@@ -231,8 +231,6 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
 * {
-  padding: 0;
-  margin: 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;

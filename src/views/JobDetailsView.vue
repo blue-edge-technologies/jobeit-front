@@ -82,7 +82,7 @@
               }} </p>
             </div>
           </div>
-          <div class="col-md-6">
+          <!-- <div class="col-md-6">
             <div class="d-flex gap-3 gap-3">
               <p class="desc">Rate:</p>
               <div class="review-star mb-2">
@@ -93,7 +93,7 @@
                 <img src="/static/new/media/img/start.png" alt="" />
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
@@ -102,7 +102,7 @@
 
     <!-- start-job-requirements-section -->
 
-    <section class="bottom-job-description-banner">
+    <!-- <section class="bottom-job-description-banner">
       <div class="container">
         <div class="row">
           <div class="col">
@@ -119,15 +119,16 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <section class="bottom-job-description-banner">
       <div class="container">
         <div class="row">
           <div class="col">
-            <h2 class="section-heading"><span>Job </span>Requirements</h2>
-            <p class="desc">
+            <h2 class="section-heading"><span>Job </span>Details</h2>
+            <div v-html="renderHTML(jobDetails.html)"></div>
+            <!-- <p class="desc">
               {{ jobDetails.requirements || "Requirements unavailable" }}
-            </p>
+            </p> -->
           </div>
         </div>
       </div>
@@ -156,6 +157,7 @@
 import FooterSection from "@/components/FooterSection.vue";
 import NavBar from "@/components/NavBar.vue";
 import JobItemCard from "@/components/JobItemCard.vue";
+import DOMPurify from 'dompurify';
 
 export default {
   components: { FooterSection, NavBar, JobItemCard },
@@ -173,6 +175,9 @@ export default {
         }
       );
     },
+    renderHTML(html){
+      return DOMPurify.sanitize(html);
+    }
   },
   data() {
     return {
