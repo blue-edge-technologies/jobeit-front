@@ -23,7 +23,7 @@
         </h2>
         <div class="search-from">
           <div class="field-wapper">
-            <!-- <div class="scroll-bar">
+          <!-- <div class="scroll-bar">
               <div></div>
             </div> -->
 
@@ -34,8 +34,8 @@
                     d="M20.333 6.93473V3.6014H13.6663V6.93473H20.333ZM3.66634 11.9347V26.9347C3.66634 27.8514 4.41634 28.6014 5.33301 28.6014H28.6663C29.583 28.6014 30.333 27.8514 30.333 26.9347V11.9347C30.333 11.0181 29.583 10.2681 28.6663 10.2681H5.33301C4.41634 10.2681 3.66634 11.0181 3.66634 11.9347ZM30.333 6.93473C32.183 6.93473 33.6663 8.41807 33.6663 10.2681V28.6014C33.6663 30.4514 32.183 31.9347 30.333 31.9347H3.66634C1.81634 31.9347 0.333008 30.4514 0.333008 28.6014L0.349674 10.2681C0.349674 8.41807 1.81634 6.93473 3.66634 6.93473H10.333V3.6014C10.333 1.7514 11.8163 0.268066 13.6663 0.268066H20.333C22.183 0.268066 23.6663 1.7514 23.6663 3.6014V6.93473H30.333Z"
                     fill="#0146B1" />
                 </svg>
-                <input type="text" name="Title" class="filter-job-input-box" placeholder="Search Job Title" id="id_title"
-                  v-model="filters.title" />
+                <input type="text" name="search" class="filter-job-input-box" placeholder="Search Jobs"
+                  id="id_search" v-model="filters.search" />
               </div>
 
               <!-- <div class="search-fields">
@@ -44,8 +44,8 @@
                     d="M20.333 6.93473V3.6014H13.6663V6.93473H20.333ZM3.66634 11.9347V26.9347C3.66634 27.8514 4.41634 28.6014 5.33301 28.6014H28.6663C29.583 28.6014 30.333 27.8514 30.333 26.9347V11.9347C30.333 11.0181 29.583 10.2681 28.6663 10.2681H5.33301C4.41634 10.2681 3.66634 11.0181 3.66634 11.9347ZM30.333 6.93473C32.183 6.93473 33.6663 8.41807 33.6663 10.2681V28.6014C33.6663 30.4514 32.183 31.9347 30.333 31.9347H3.66634C1.81634 31.9347 0.333008 30.4514 0.333008 28.6014L0.349674 10.2681C0.349674 8.41807 1.81634 6.93473 3.66634 6.93473H10.333V3.6014C10.333 1.7514 11.8163 0.268066 13.6663 0.268066H20.333C22.183 0.268066 23.6663 1.7514 23.6663 3.6014V6.93473H30.333Z"
                     fill="#0146B1" />
                 </svg>
-                <input type="text" name="keywords" class="filter-job-input-box" placeholder="Search keywords"
-                  id="id_keywords" v-model="filters.keywords" />
+                <input type="text" name="search" class="filter-job-input-box" placeholder="Search search"
+                  id="id_search" v-model="filters.search" />
               </div> -->
               <div class="search-fields">
                 <svg width="20" height="20" viewBox="0 0 40 40" fill="none">
@@ -269,8 +269,9 @@ function getLimitDatePosted(date_posted) {
 function getAPIFilters(query) {
   return {
     title__icontains: query.title || undefined,
+    // search: query.search || undefined,
     company__icontains: query.company || undefined,
-    search: query.keywords || undefined,
+    search: query.search || undefined,
     location__icontains: query.location || undefined,
     category__icontains: query.category || undefined,
     minimum_experience__gte: query.experience_level_min || undefined,
@@ -308,7 +309,7 @@ export default {
       filters: {
         title: "",
         company: "",
-        keywords: "",
+        search: "",
         location: "",
         category: "",
 
@@ -322,6 +323,8 @@ export default {
         date_posted: "",
         date_posted_min: "",
         date_posted_max: "",
+        
+        // search: "",
       },
       error: "",
       selectedOverrideFilter: "",
@@ -332,18 +335,19 @@ export default {
     this.currentPage = this.$route.query.page || 1;
     this.filters.title = this.$route.query.title || "";
     this.filters.company = this.$route.query.company || "";
-    this.filters.keywords = this.$route.query.keywords || "";
+    this.filters.search = this.$route.query.search || "";
     this.filters.location = this.$route.query.location || "";
     this.filters.category = this.$route.query.category || "";
     this.filters.experience_level_min =
-      this.$route.query.experience_level_min || null;
+    this.$route.query.experience_level_min || null;
     this.filters.experience_level_max =
-      this.$route.query.experience_level_max || null;
+    this.$route.query.experience_level_max || null;
     this.filters.salary_min = this.$route.query.salary_min || null;
     this.filters.salary_max = this.$route.query.salary_max || null;
     this.filters.rating_min = this.$route.query.rating_min || null;
     this.filters.rating_max = this.$route.query.rating_max || null;
     this.filters.date_posted = this.$route.query.date_posted || "";
+    this.search = this.$route.search || "";
     this.applyFilters();
     this.$store.dispatch("getURLFilters");
     this.$store.dispatch("getURLCategories");
