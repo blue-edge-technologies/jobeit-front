@@ -40,6 +40,7 @@ export default new Vuex.Store({
     updateProfileErrors: null,
     jobsCount: null,
     urlOptionFilters: [],
+    categories:[],
   },
   getters: {
     getJobs(state) {
@@ -72,6 +73,9 @@ export default new Vuex.Store({
     getURLFilters(state) {
       return state.urlOptionFilters;
     },
+    getCategories(state) {
+      return state.categories;
+    }
   },
   mutations: {
     setJobs(state, jobs) {
@@ -110,6 +114,9 @@ export default new Vuex.Store({
     setURLFilters(state, urlOptionFilters) {
       state.urlOptionFilters = urlOptionFilters;
     },
+    setURLCategories(state, categories) {
+      state.categories = categories;
+    }
   },
 
   actions: {
@@ -241,6 +248,14 @@ export default new Vuex.Store({
       try {
         const response = await axios.get(`${API_URL}/jobs/filtertags/`);
         commit("setURLFilters", response.data);
+      } catch (e) {
+        console.log(e);
+      }
+    },
+    async getURLCategories({ commit }) {
+      try {
+        const response = await axios.get(`${API_URL}/jobs/categories/`);
+        commit("setURLCategories", response.data);
       } catch (e) {
         console.log(e);
       }
